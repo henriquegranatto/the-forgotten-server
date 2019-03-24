@@ -3,7 +3,7 @@
 // BUSCA A LISTA DE ACTIONS SCRIPTS
 const scripts = require('../../../data/actions/actions.json')
 
-class ActionController 
+class ChatController 
 {
     // MÉTODO QUE BUSCA E EXECUTA O SCRIPT SOLICITADO 
     async execute({ request, response }) 
@@ -79,4 +79,4 @@ class ActionController
     }
 }
 
-module.exports = ActionController
+module.exports = ChatController
