@@ -20,7 +20,7 @@ class ChatController
             this.validate(name, data, script)
 
             // TENTA INCLUIR O ARQUIVO COM O SCRIPT  
-            script = require(`../../../data/actions/${script}`)
+            script = require(`../../../data/chat/${script}`)
 
             // TENTA EXECUTA O SCRIPT
             script = await script.execute(data)
