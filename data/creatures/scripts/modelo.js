@@ -9,5 +9,5 @@ exports.execute = async ({cid, item, fromPosition, itemEx, toPosition, isHotkey}
 {
 
     // TODOS OS SCRIPTS DEVEM RETORNAR ALGUMA INFORMAÇÃO.
-    return {status: 200, messagem: "Modelo de Action Script Executado com sucesso"}
+    return {status: 200, messagem: "Modelo de Creature Script Executado com sucesso"}
 }

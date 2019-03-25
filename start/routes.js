@@ -22,3 +22,4 @@ Route.get('/', () => {
 
 Route.post('/action/script', 'ActionController.execute')
 Route.post('/chat/script', 'ChatController.execute')
+Route.post('/creature/script', 'CreatureController.execute')

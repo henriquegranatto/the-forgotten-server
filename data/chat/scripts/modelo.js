@@ -9,5 +9,5 @@ exports.execute = async ({cid, item, fromPosition, itemEx, toPosition, isHotkey}
 {
 
     // TODOS OS SCRIPTS DEVEM RETORNAR ALGUMA INFORMAÇÃO.
-    return {status: 200, messagem: "Executado com suceso"}
+    return {status: 200, messagem: "Modelo de Chat Script Executado com sucesso"}
 }
