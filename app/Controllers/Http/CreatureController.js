@@ -1,9 +1,9 @@
 'use strict'
 
 // BUSCA A LISTA DE ACTIONS SCRIPTS
-const scripts = require('../../../data/chat/chat.json')
+const scripts = require('../../../data/creatures/creatures.json')
 
-class ChatController 
+class CreatureController 
 {
     // MÉTODO QUE BUSCA E EXECUTA O SCRIPT SOLICITADO 
     async execute({ request, response }) 
@@ -49,7 +49,7 @@ class ChatController
         catch(e)
         {
             // RETORNA ALGUM POSSÍVEL ERRO
-            const code = (e.code) ? e.code : "ChatController.validate"
+            const code = (e.code) ? e.code : "CreatureController.validate"
             throw {code: code, messagem: e.message}
         }
     }
@@ -74,9 +74,9 @@ class ChatController
         catch(e)
         {
             // RETORNA ALGUM POSSÍVEL ERRO
-            throw {code: "ChatController.findScript", messagem: e.message}
+            throw {code: "CreatureController.findScript", messagem: e.message}
         }
     }
 }
 
-module.exports = ChatController
+module.exports = CreatureController
