@@ -19,13 +19,13 @@ class AccountController
         publicCode: await  Hash.make(Date.now().toString())
       })
 
-      response.send(account)
+      response.send({status: 200, messagem: "Conta criada com sucesso!"})
     }
     catch(e)
     {
-        // RETORNA ALGUM POSSÍVEL ERRO
-        const error = {status: 400, message: "Falha na requisição", error: e}
-        response.send(error)
+      // RETORNA ALGUM POSSÍVEL ERRO
+      const error = {status: 400, message: "Não foi possível atender à requisição", error: e}
+      response.send(error)
     }
   }
   
@@ -41,13 +41,15 @@ class AccountController
 
       const account = await Database.table('accounts').where('publicCode', publicCode).update(data)
 
-      response.send(account)
+      if(account == 0) throw {status: 200, messagem: "Conta não foi encontrada com os dados informados"}
+      
+      response.send({status: 200, messagem: "Dados alterados com sucesso"})
     }
     catch(e)
     {
-        // RETORNA ALGUM POSSÍVEL ERRO
-        const error = {status: 400, message: "Falha na requisição", error: e}
-        response.send(error)
+      // RETORNA ALGUM POSSÍVEL ERRO
+      const error = {status: 400, message: "Não foi possível atender à requisição", error: e}
+      response.send(error)
     }
   }
 
@@ -60,27 +62,32 @@ class AccountController
 
       const account = await Database.table('accounts').where('publicCode', publicCode).delete()
 
-      response.send(account)
+      if(account == 0) throw {status: 200, messagem: "Conta não foi encontrada com os dados informados"}
+      
+      response.send({status: 200, messagem: "Conta deletada com sucesso"})
     }
     catch(e)
     {
-        // RETORNA ALGUM POSSÍVEL ERRO
-        const error = {status: 400, message: "Falha na requisição", error: e}
-        response.send(error)
+      // RETORNA ALGUM POSSÍVEL ERRO
+      const error = {status: 400, message: "Não foi possível atender à requisição", error: e}
+      response.send(error)
     }
   }
 
+  // MÉTODO QUE BUSCA INFORMAÇÕES DE USUÁRIOS
   async show ({ request, response })
   {
     try
     {
       const data = request.all()
       const account = await Database.select('name', 'email', 'password', 'premdays', 'type', 'publicCode', 'token').from('accounts').where(data)
-      response.send(account)
+      response.send({status: 200, messagem: "Pesquisa realizada. Dados encontrados:", data: account})
     }
     catch(e)
     {
-
+      // RETORNA ALGUM POSSÍVEL ERRO
+      const error = {status: 400, message: "Não foi possível atender à requisição", error: e}
+      response.send(error)
     }
   }
 }
