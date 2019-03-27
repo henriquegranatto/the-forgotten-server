@@ -3,11 +3,8 @@
 const Hash = use('Hash')
 const Database = use('Database')
 
-class AccountController {
-  async index ({ request, response }) 
-  {
-  }
-  
+class AccountController 
+{  
   // MÉTODO QUE CRIA UMA NOVA CONTA
   async create ({ request, response }) 
   {
@@ -27,17 +24,9 @@ class AccountController {
     catch(e)
     {
         // RETORNA ALGUM POSSÍVEL ERRO
-        const error = {status: 400, message: "Não foi possível executar o script", error: e}
+        const error = {status: 400, message: "Falha na requisição", error: e}
         response.send(error)
     }
-  }
-  
-  async store ({ request, response }) 
-  {
-  }
-  
-  async show ({ request, response }) 
-  {
   }
   
   // MÉTODO QUE EDITA AS INFORMAÇÕES DE UMA CONTA
@@ -57,15 +46,12 @@ class AccountController {
     catch(e)
     {
         // RETORNA ALGUM POSSÍVEL ERRO
-        const error = {status: 400, message: "Não foi possível executar o script", error: e}
+        const error = {status: 400, message: "Falha na requisição", error: e}
         response.send(error)
     }
   }
-  
-  async update ({ request, response }) 
-  {
-  }
 
+  // MÉTODO QUE DELETA UM USUÁRIO
   async delete ({ request, response }) 
   {
     try
@@ -79,8 +65,22 @@ class AccountController {
     catch(e)
     {
         // RETORNA ALGUM POSSÍVEL ERRO
-        const error = {status: 400, message: "Não foi possível executar o script", error: e}
+        const error = {status: 400, message: "Falha na requisição", error: e}
         response.send(error)
+    }
+  }
+
+  async show ({ request, response })
+  {
+    try
+    {
+      const data = request.all()
+      const account = await Database.select('name', 'email', 'password', 'premdays', 'type', 'publicCode', 'token').from('accounts').where(data)
+      response.send(account)
+    }
+    catch(e)
+    {
+
     }
   }
 }
