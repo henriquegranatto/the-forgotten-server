@@ -17,3 +17,4 @@ Route.post('/weapon/script', 'WeaponController.execute')
 
 // ROTAS PARA O GAME CORE
 Route.post('/account/create', 'AccountController.create')
+Route.post('/account/edit', 'AccountController.edit')

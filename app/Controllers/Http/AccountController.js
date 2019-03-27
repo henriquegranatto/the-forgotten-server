@@ -40,12 +40,15 @@ class AccountController {
   {
   }
   
+  // MÉTODO QUE EDITA AS INFORMAÇÕES DE UMA CONTA
   async edit ({ request, response }) 
   {
     try
     {
       const data = request.except(['publicCode'])
       const { publicCode } = request.only(['publicCode'])
+
+      if(data.password) data.password = await Hash.make(data.password)
 
       const account = await Database.table('accounts').where('publicCode', publicCode).update(data)
 
