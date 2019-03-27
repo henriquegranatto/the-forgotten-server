@@ -66,8 +66,22 @@ class AccountController {
   {
   }
 
-  async destroy ({ request, response }) 
+  async delete ({ request, response }) 
   {
+    try
+    {
+      const { publicCode } = request.only(['publicCode'])
+
+      const account = await Database.table('accounts').where('publicCode', publicCode).delete()
+
+      response.send(account)
+    }
+    catch(e)
+    {
+        // RETORNA ALGUM POSSÍVEL ERRO
+        const error = {status: 400, message: "Não foi possível executar o script", error: e}
+        response.send(error)
+    }
   }
 }
 
