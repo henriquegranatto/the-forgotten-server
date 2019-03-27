@@ -15,9 +15,10 @@
 
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
+const Database = use('Database')
 
-Route.get('/', () => {
-  return { greeting: 'Hello world in JSON' }
+Route.get('/', async () => {
+  return await Database.table('accounts').select('*')
 })
 
 Route.post('/action/script', 'ActionController.execute')
