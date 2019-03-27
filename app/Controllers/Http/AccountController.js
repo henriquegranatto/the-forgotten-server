@@ -1,5 +1,6 @@
 'use strict'
 
+const Hash = use('Hash')
 const Database = use('Database')
 
 class AccountController {
@@ -12,12 +13,13 @@ class AccountController {
   {
     try
     {
-      const data = request.only(['name','password','secret','type','premdays','lastday','email','creation'])
+      const data = request.only(['name', 'email', 'password'])
 
       const account = await Database.table('accounts').insert({
         name: data.name,
         email: data.email,
-        password: data.password,
+        password: await Hash.make(data.password),
+        publicCode: await  Hash.make(Date.now().toString())
       })
 
       response.send(account)
@@ -40,6 +42,21 @@ class AccountController {
   
   async edit ({ request, response }) 
   {
+    try
+    {
+      const data = request.except(['publicCode'])
+      const { publicCode } = request.only(['publicCode'])
+
+      const account = await Database.table('accounts').where('publicCode', publicCode).update(data)
+
+      response.send(account)
+    }
+    catch(e)
+    {
+        // RETORNA ALGUM POSSÍVEL ERRO
+        const error = {status: 400, message: "Não foi possível executar o script", error: e}
+        response.send(error)
+    }
   }
   
   async update ({ request, response }) 
