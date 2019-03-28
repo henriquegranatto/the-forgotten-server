@@ -24,7 +24,7 @@ class AccountController
     catch(e)
     {
       // RETORNA ALGUM POSSÍVEL ERRO
-      const error = {status: 400, message: "Não foi possível atender à requisição", error: e}
+      const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "AccountController.password", messagem: e.message}}
       response.send(error)
     }
   }
@@ -37,8 +37,6 @@ class AccountController
       const data = request.except(['publicCode'])
       const { publicCode } = request.only(['publicCode'])
 
-      if(data.password) data.password = await Hash.make(data.password)
-
       const account = await Database.table('accounts').where('publicCode', publicCode).update(data)
 
       if(account == 0) throw {status: 200, messagem: "Conta não foi encontrada com os dados informados"}
@@ -48,7 +46,7 @@ class AccountController
     catch(e)
     {
       // RETORNA ALGUM POSSÍVEL ERRO
-      const error = {status: 400, message: "Não foi possível atender à requisição", error: e}
+      const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "AccountController.password", messagem: e.message}}
       response.send(error)
     }
   }
@@ -69,7 +67,7 @@ class AccountController
     catch(e)
     {
       // RETORNA ALGUM POSSÍVEL ERRO
-      const error = {status: 400, message: "Não foi possível atender à requisição", error: e}
+      const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "AccountController.password", messagem: e.message}}
       response.send(error)
     }
   }
@@ -86,7 +84,32 @@ class AccountController
     catch(e)
     {
       // RETORNA ALGUM POSSÍVEL ERRO
-      const error = {status: 400, message: "Não foi possível atender à requisição", error: e}
+      const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "AccountController.password", messagem: e.message}}
+      response.send(error)
+    }
+  }
+
+  // MÉTODO QUE ALTERA A SENHA DO USUÁRIO
+  async password ({ request, response })
+  {
+    try
+    {
+      const data = request.except(['publicCode'])
+      const { publicCode } = request.only(['publicCode'])
+
+      if(data.password) data.password = await Hash.make(data.password)
+
+      const account = await Database.table('accounts').where('publicCode', publicCode).update(data.password)
+
+      if(account == 0) throw {status: 400, messagem: "Não foi possível alterar a senha com os dados informados"}
+      
+      response.send({status: 200, messagem: "Senha alterada com sucesso"})
+
+    }
+    catch(e)
+    {
+      // RETORNA ALGUM POSSÍVEL ERRO
+      const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "AccountController.password", messagem: e.message}}
       response.send(error)
     }
   }
