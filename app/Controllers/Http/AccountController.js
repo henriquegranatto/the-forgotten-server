@@ -99,7 +99,7 @@ class AccountController
 
       if(data.password) data.password = await Hash.make(data.password)
 
-      const account = await Database.table('accounts').where('publicCode', publicCode).update(data.password)
+      const account = await Database.table('accounts').where('publicCode', publicCode).update(data)
 
       if(account == 0) throw {status: 400, messagem: "Não foi possível alterar a senha com os dados informados"}
       
