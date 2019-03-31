@@ -29,6 +29,23 @@ class AuthController
             response.send(error)
         }
     }
+
+    async logout({ request, response })
+    {
+        try
+        {
+            const { publicCode, token } = request.all()
+            const res = await account.set({publicCode: publicCode, token: null})
+            console.log(res)
+            response.send({status: 200, messagem: "Logout realizado com sucesso"})
+        }
+        catch(e)
+        {
+            // RETORNA ALGUM POSSÍVEL ERRO
+            const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "AuthController.login", message: e.message}}
+            response.send(error)
+        }
+    }
 }
 
 module.exports = AuthController
