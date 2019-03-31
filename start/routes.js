@@ -2,23 +2,29 @@
 
 const Route = use('Route')
 
-// ROTAS PARA OS SCRIPTS
-Route.post('/action/script', 'ActionController.execute')
-Route.post('/chat/script', 'ChatController.execute')
-Route.post('/creature/script', 'CreatureController.execute')
-Route.post('/global/script', 'GlobalController.execute')
-Route.post('/monster/script', 'MonsterController.execute')
-Route.post('/movement/script', 'MovementController.execute')
-Route.post('/npc/script', 'NpcController.execute')
-Route.post('/player/script', 'PlayerController.execute')
-Route.post('/quest/script', 'QuestController.execute')
-Route.post('/talkaction/script', 'TalkactionController.execute')
-Route.post('/weapon/script', 'WeaponController.execute')
+// ROTAS QUE NECESSITAM DE AUTENTICAÇÃO
+Route.group(() => {
+    // ROTAS PARA OS SCRIPTS
+    Route.post('/action/script', 'ActionController.execute')
+    Route.post('/chat/script', 'ChatController.execute')
+    Route.post('/creature/script', 'CreatureController.execute')
+    Route.post('/global/script', 'GlobalController.execute')
+    Route.post('/monster/script', 'MonsterController.execute')
+    Route.post('/movement/script', 'MovementController.execute')
+    Route.post('/npc/script', 'NpcController.execute')
+    Route.post('/player/script', 'PlayerController.execute')
+    Route.post('/quest/script', 'QuestController.execute')
+    Route.post('/talkaction/script', 'TalkactionController.execute')
+    Route.post('/weapon/script', 'WeaponController.execute')
 
-// ROTAS PARA O GAME CORE
-Route.post('/account/create', 'AccountController.create')
-Route.post('/account/edit', 'AccountController.edit')
-Route.post('/account/delete', 'AccountController.delete')
-Route.post('/account/show', 'AccountController.show')
-Route.post('/account/password', 'AccountController.password')
-Route.post('/auth/login', 'AuthController.login')
+    // ROTAS PARA O GAME CORE
+    Route.post('/account/edit', 'AccountController.edit')
+    Route.post('/account/delete', 'AccountController.delete')
+    Route.post('/account/show', 'AccountController.show')
+    Route.post('/auth/login', 'AuthController.login')
+}).middleware(['auth'])
+
+// ROTAS QUE NÃO NECESSITAM DE AUTENTICAÇÃO
+    // ROTAS PARA O GAME CORE
+    Route.post('/account/create', 'AccountController.create')
+    Route.post('/account/password', 'AccountController.password')

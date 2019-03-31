@@ -25,8 +25,8 @@ class AuthController
         catch(e)
         {
             // RETORNA ALGUM POSSÍVEL ERRO
-            const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "AuthController.login", messagem: e.message}}
-            return error
+            const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "AuthController.login", message: e.message}}
+            response.send(error)
         }
     }
 }
