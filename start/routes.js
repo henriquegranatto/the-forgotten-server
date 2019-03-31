@@ -21,10 +21,11 @@ Route.group(() => {
     Route.post('/account/edit', 'AccountController.edit')
     Route.post('/account/delete', 'AccountController.delete')
     Route.post('/account/show', 'AccountController.show')
-    Route.post('/auth/login', 'AuthController.login')
+    Route.post('/auth/logout', 'AuthController.logout')
 }).middleware(['auth'])
 
 // ROTAS QUE NÃO NECESSITAM DE AUTENTICAÇÃO
     // ROTAS PARA O GAME CORE
+    Route.post('/auth/login', 'AuthController.login')
     Route.post('/account/create', 'AccountController.create')
     Route.post('/account/password', 'AccountController.password')
