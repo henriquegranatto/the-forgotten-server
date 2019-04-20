@@ -1,6 +1,9 @@
 # Node modules
 node_modules
 
+# Package Lock
+package-lock.json
+
 # Adonis directory for storing tmp files
 tmp
 
