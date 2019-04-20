@@ -14,5 +14,5 @@ Projeto Original: https://github.com/otland/forgottenserver
 Há um bug no sistema de autenticação, já sabemos a causa e a correção será realizada.  
 Porém enquanto o mesmo não é corrigido, para que o sistema funcione comentem o seguinte código:  
   
-### Arquivo: node_modules/@adonisjs/auth/src/Schemes/Jwt.js   
-###Linhas: 256 - 258
+#### Arquivo: node_modules/@adonisjs/auth/src/Schemes/Jwt.js  
+#### Linhas: 256 - 258
