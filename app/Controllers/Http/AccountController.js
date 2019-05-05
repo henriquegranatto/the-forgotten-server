@@ -24,7 +24,7 @@ class AccountController
     catch(e)
     {
       // RETORNA ALGUM POSSÍVEL ERRO
-      const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "AccountController.password", messagem: e.message}}
+      const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "AccountController.create", message: e.message}}
       response.send(error)
     }
   }
@@ -46,7 +46,7 @@ class AccountController
     catch(e)
     {
       // RETORNA ALGUM POSSÍVEL ERRO
-      const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "AccountController.password", messagem: e.message}}
+      const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "AccountController.edit", message: e.message}}
       response.send(error)
     }
   }
@@ -67,7 +67,7 @@ class AccountController
     catch(e)
     {
       // RETORNA ALGUM POSSÍVEL ERRO
-      const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "AccountController.password", messagem: e.message}}
+      const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "AccountController.delete", message: e.message}}
       response.send(error)
     }
   }
@@ -84,7 +84,7 @@ class AccountController
     catch(e)
     {
       // RETORNA ALGUM POSSÍVEL ERRO
-      const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "AccountController.password", messagem: e.message}}
+      const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "AccountController.show", messagem: e.message}}
       response.send(error)
     }
   }
@@ -145,7 +145,7 @@ class AccountController
     catch(e)
     {
       // RETORNA ALGUM POSSÍVEL ERRO
-      const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "AccountController.set", messagem: e.message}}
+      const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "AccountController.set", message: e.message}}
       return error
     }
   }

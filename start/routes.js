@@ -22,6 +22,13 @@ Route.group(() => {
     Route.post('/account/delete', 'AccountController.delete')
     Route.post('/account/show', 'AccountController.show')
     Route.post('/auth/logout', 'AuthController.logout')
+
+    // ROTAS PARA PLAYER
+    Route.post('/player/create', 'PlayerController.create')
+    Route.post('/player/edit', 'PlayerController.edit')
+    Route.post('/player/delete', 'PlayerController.delete')
+    Route.post('/player/show/all', 'PlayerController.showAllPlayers')
+
 }).middleware(['auth'])
 
 // ROTAS QUE NÃO NECESSITAM DE AUTENTICAÇÃO

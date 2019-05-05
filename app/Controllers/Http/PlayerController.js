@@ -1,80 +1,95 @@
 'use strict'
 
-// BUSCA A LISTA DE ACTIONS SCRIPTS
-const scripts = require('../../../data/players/players.json')
+const Database = use('Database')
 
 class PlayerController 
 {
-    // MÉTODO QUE BUSCA E EXECUTA O SCRIPT SOLICITADO 
-    async execute({ request, response }) 
+    async create ({ request, response }) 
     {
         try
         {
-            // PEGA OS DADOS DA REQUISIÇÃO (NOME DO SCRIPT E DADOS ADICIONAIS)
-            const {name, data} = request.only(['name', 'data'])
+            const data = request.except(['publicCode', 'token'])
 
-            // BUSCA O CAMINHO DO SCRIPT E GUARDA O RESULTADO 
-            let script = this.findScript(name)
+            const player = await Database.table('players').insert(data)
 
-            // VALIDA OS DADOS
-            this.validate(name, data, script)
-
-            // TENTA INCLUIR O ARQUIVO COM O SCRIPT  
-            script = require(`../../../data/players/${script}`)
-
-            // TENTA EXECUTA O SCRIPT
-            script = await script.execute(data)
-
-            // RETORNA A RESPOSTA
-            response.send(script)
+            response.send({status: 200, messagem: "Player criado com sucesso!"})
         }
         catch(e)
         {
             // RETORNA ALGUM POSSÍVEL ERRO
-            const error = {status: 400, message: "Não foi possível executar o script", error: e}
+            const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "PlayerController.create", messagem: e.message}}
             response.send(error)
         }
     }
 
-    // MÉTODOS QUE VALIDA OS DADOS REPASSADOS NA REQUISIÇÃO E SE O SCRIPT FOI ENCONTRADO
-    validate(name, data, script)
+    async edit ({ request, response }) 
     {
         try
         {
-            // VALIDA OS DADOS NECESSÁRIOS PARA RODAR O SCRIPT
-            if(!data) throw {code: 400, message: 'Argumento data não informado na requisição'} 
-            if(!name) throw {code: 400, message: 'Argumento name não informado na requisição'} 
-            if(!script) throw {code: 400, message: 'Script não encontrado'} 
+            const data = request.except(['account_id', 'publicCode', 'token'])
+
+            const player = await Database.table('players').where('id', data.id).update(data)
+
+            response.send({status: 200, messagem: "Dados alterados com sucesso!"})
         }
         catch(e)
         {
             // RETORNA ALGUM POSSÍVEL ERRO
-            const code = (e.code) ? e.code : "PlayerController.validate"
-            throw {code: code, messagem: e.message}
+            const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "PlayerController.edit", messagem: e.message}}
+            response.send(error)
         }
     }
 
-    // MÉTODO QUE BUSCA O CAMINHO PARA O SCRIPT
-    findScript(name)
+    async delete ({ request, response }) 
     {
         try
         {
-            // VARIÁVEL QUE GUARDA O CAMINHO PARA O SCRIPT
-            let response
+            const data = request.only(['id'])
 
-            // BUSCA NO JSON O CAMINHO PARA O SCRIPT SELECIONADO
-            Object.keys(scripts).filter(function() 
-            {
-                response = scripts[name]
-            })
+            const player = await Database.table('players').where('id', data.id).delete()
 
-            // RETORNA O RESULTADO
-            return response
+            if(player == 0) throw {status: 400, message: "Player não foi encontrada com os dados informados"}
+            
+            response.send({status: 200, messagem: "Player deletado com sucesso"})
         }
         catch(e)
         {
             // RETORNA ALGUM POSSÍVEL ERRO
-            throw {code: "PlayerController.findScript", messagem: e.message}
+            const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "PlayerController.delete", message: e.message}}
+            response.send(error)
+        }
+    }
+
+    async show ({ request, response }) 
+    {
+        try
+        {
+            const data = request.only(['id', 'name'])
+            const filter = (data.id) ? {id: data.id} : {name: data.name}
+            const player = await Database.select('*').from('players').where(filter)
+            response.send({status: 200, messagem: "Pesquisa realizada. Dados encontrados:", data: player})
+        }
+        catch(e)
+        {
+            // RETORNA ALGUM POSSÍVEL ERRO
+            const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "PlayerController.show", message: e.message}}
+            response.send(error)
+        }
+    }
+
+    async showAllPlayers ({ request, response }) 
+    {
+        try
+        {
+            const data = request.only(['account_id'])
+            const player = await Database.select('*').from('players').where("account_id", data.account_id)
+            response.send({status: 200, messagem: "Pesquisa realizada. Dados encontrados:", data: player})
+        }
+        catch(e)
+        {
+            // RETORNA ALGUM POSSÍVEL ERRO
+            const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "PlayerController.show", message: e.message}}
+            response.send(error)
         }
     }
 }
