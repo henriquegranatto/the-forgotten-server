@@ -6,7 +6,7 @@ Projeto Original: https://github.com/otland/forgottenserver
 
 # Links Úteis
 - REPOSITÓRIO -> https://github.com/HenriqueGranatto/the-forgotten-server-web
-- TRELLO -> https://trello.com/invite/b/fXRUjILZ/2bc9dd88e396fbb19d4e2deedab6d801/otserver-js
+- TRELLO -> https://trello.com/b/fXRUjILZ/otserver-js
 - DISCORD -> https://discord.gg/Vvc636k  
 - COLEÇÃO DO POSTMAN: https://www.getpostman.com/collections/edd489fe7997a37adcc0
 
