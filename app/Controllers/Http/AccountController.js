@@ -78,7 +78,7 @@ class AccountController
     try
     {
       const data = request.all()
-      const account = await Database.select('name', 'email', 'password', 'premdays', 'type', 'publicCode', 'token').from('accounts').where(data)
+      const account = await Database.select('id', 'name', 'email', 'password', 'premdays', 'type', 'publicCode', 'token').from('accounts').where(data)
       response.send({status: 200, messagem: "Pesquisa realizada. Dados encontrados:", data: account})
     }
     catch(e)

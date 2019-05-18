@@ -48,7 +48,7 @@ class PlayerController
 
             const player = await Database.table('players').where('id', data.id).delete()
 
-            if(player == 0) throw {status: 400, message: "Player não foi encontrada com os dados informados"}
+            if(player == 0) throw {status: 400, message: "Player não foi encontrado com os dados informados"}
             
             response.send({status: 200, messagem: "Player deletado com sucesso"})
         }
