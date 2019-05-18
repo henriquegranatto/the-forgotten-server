@@ -17,7 +17,7 @@ Route.group(() => {
     Route.post('/talkaction/script', 'TalkactionController.execute')
     Route.post('/weapon/script', 'WeaponController.execute')
 
-    // ROTAS PARA O GAME CORE
+    // ROTAS PARA ACCOUNT 
     Route.post('/account/edit', 'AccountController.edit')
     Route.post('/account/delete', 'AccountController.delete')
     Route.post('/account/show', 'AccountController.show')
@@ -27,7 +27,15 @@ Route.group(() => {
     Route.post('/player/create', 'PlayerController.create')
     Route.post('/player/edit', 'PlayerController.edit')
     Route.post('/player/delete', 'PlayerController.delete')
+    Route.post('/player/show', 'PlayerController.show')
     Route.post('/player/show/all', 'PlayerController.showAllPlayers')
+
+    // ROTAS PARA GUILDA
+    Route.post('/guild/create', 'GuildController.create')
+    Route.post('/guild/edit', 'GuildController.edit')
+    Route.post('/guild/delete', 'GuildController.delete')
+    Route.post('/guild/show', 'GuildController.show')
+    Route.post('/guild/show/all', 'GuildController.showAllGuilds')
 
 }).middleware(['auth'])
 
