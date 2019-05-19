@@ -12,7 +12,6 @@ class Auth
     try
     {
       const user = await account.get({publicCode: request.body.publicCode, token: request.body.token})
-      console.log(user)
       if(user.status == 400) throw user
       if(!user.data) throw {status: 400, messagem: "Falha na autenticação"} 
       if(user.data.length != 1) throw {status: 400, messagem: "Falha na autenticação"} 
