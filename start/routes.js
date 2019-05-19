@@ -35,14 +35,14 @@ Route.group(() => {
     Route.post('/guild/edit',       'GuildController.edit')
     Route.post('/guild/delete',     'GuildController.delete')
     Route.post('/guild/show',       'GuildController.show')
-    Route.post('/guild/show/all',   'GuildController.showAllHouses')
+    Route.post('/guild/show/all',   'GuildController.showAllGuilds')
 
     // ROTAS PARA HOUSE
     Route.post('/house/create',     'HouseController.create')
     Route.post('/house/edit',       'HouseController.edit')
     Route.post('/house/delete',     'HouseController.delete')
     Route.post('/house/show',       'HouseController.show')
-    Route.post('/house/show/all',   'HouseController.showAllGuilds')
+    Route.post('/house/show/all',   'HouseController.showAllHouses')
 }).middleware(['auth'])
 
 // ROTAS QUE NÃO NECESSITAM DE AUTENTICAÇÃO
