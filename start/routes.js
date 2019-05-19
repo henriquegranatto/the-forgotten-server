@@ -35,7 +35,7 @@ Route.group(() => {
     Route.post('/guild/edit',       'GuildController.edit')
     Route.post('/guild/delete',     'GuildController.delete')
     Route.post('/guild/show',       'GuildController.show')
-    Route.post('/guild/show/all',   'GuildController.showAllGuilds')
+    Route.post('/guild/show/all',   'GuildController.showAllHouses')
 
     // ROTAS PARA HOUSE
     Route.post('/house/create',     'HouseController.create')

@@ -77,12 +77,12 @@ class HouseController
         }
     }
 
-    async showAllGuilds ({ request, response }) 
+    async showAllHouses ({ request, response }) 
     {
         try
         {
-            const data = request.only(['ownerid'])
-            const house = await Database.select('*').from('houses').where("ownerid", data.ownerid)
+            const data = request.only(['owner'])
+            const house = await Database.select('*').from('houses').where("owner", data.owner)
             response.send({status: 200, messagem: "Pesquisa realizada. Dados encontrados:", data: house})
         }
         catch(e)
