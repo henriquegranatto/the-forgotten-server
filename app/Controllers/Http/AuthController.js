@@ -36,7 +36,6 @@ class AuthController
         {
             const { publicCode, token } = request.all()
             const res = await account.set({publicCode: publicCode, token: null})
-            console.log(res)
             response.send({status: 200, messagem: "Logout realizado com sucesso"})
         }
         catch(e)
