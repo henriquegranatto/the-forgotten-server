@@ -43,6 +43,13 @@ Route.group(() => {
     Route.post('/house/delete',     'HouseController.delete')
     Route.post('/house/show',       'HouseController.show')
     Route.post('/house/show/all',   'HouseController.showAllHouses')
+
+    // ROTAS PARA IP BAN
+    Route.post('/ipban/create',     'IPBanController.create')
+    Route.post('/ipban/edit',       'IPBanController.edit')
+    Route.post('/ipban/delete',     'IPBanController.delete')
+    Route.post('/ipban/show',       'IPBanController.show')
+    Route.post('/ipban/show/all',   'IPBanController.showAllIPs')
 }).middleware(['auth'])
 
 // ROTAS QUE NÃO NECESSITAM DE AUTENTICAÇÃO
