@@ -65,8 +65,7 @@ class IpBanController
         try
         {
             const data = request.only(['ip'])
-            const filter = data.ip
-            const ipban = await Database.select('*').from('ip_bans').where(filter)
+            const ipban = await Database.select('*').from('ip_bans').where(data)
             response.send({status: 200, messagem: "Pesquisa realizada. Dados encontrados:", data: ipban})
         }
         catch(e)
