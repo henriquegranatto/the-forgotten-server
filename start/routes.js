@@ -44,12 +44,12 @@ Route.group(() => {
     Route.post('/house/show',       'HouseController.show')
     Route.post('/house/show/all',   'HouseController.showAllHouses')
 
-    // ROTAS PARA IP BAN
-    Route.post('/ipban/create',     'IPBanController.create')
-    Route.post('/ipban/edit',       'IPBanController.edit')
-    Route.post('/ipban/delete',     'IPBanController.delete')
-    Route.post('/ipban/show',       'IPBanController.show')
-    Route.post('/ipban/show/all',   'IPBanController.showAllIPs')
+    // ROTAS PARA MARKET HISTORY
+    Route.post('/markethistory/create',     'MarketHistoryController.create')
+    Route.post('/markethistory/edit',       'MarketHistoryController.edit')
+    Route.post('/markethistory/delete',     'MarketHistoryController.delete')
+    Route.post('/markethistory/show',       'MarketHistoryController.show')
+    Route.post('/markethistory/show/all',   'MarketHistoryController.showAllIPs')
 }).middleware(['auth'])
 
 // ROTAS QUE NÃO NECESSITAM DE AUTENTICAÇÃO
