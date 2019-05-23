@@ -1,4 +1,4 @@
-# The Forgotten Server Web
+# The Forgotten Server JS
 Um servidor MMORPG baseado em Tibia.  
 Implementação baseada no antigo projeto The Forgotten Server.  
 O projeto possuí arquitetura NodeJS e é estruturado em Javascript.  
