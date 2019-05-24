@@ -52,12 +52,12 @@ Route.group(() => {
     Route.post('/markethistory/show/all',   'MarketHistoryController.showAllIPs')
 
     // ROTAS PARA MARKET OFFERS
-    Route.post('/marketoffers/create',     'MarketOffersController.create')
-    Route.post('/marketoffers/edit',       'MarketOffersController.edit')
-    Route.post('/marketoffers/delete',     'MarketOffersController.delete')
-    Route.post('/marketoffers/show',       'MarketOffersController.show')
-    Route.post('/marketoffers/show/all',   'MarketOffersController.showAllIPs')
-    
+    Route.post('/marketoffers/create',     'MarketOfferController.create')
+    Route.post('/marketoffers/edit',       'MarketOfferController.edit')
+    Route.post('/marketoffers/delete',     'MarketOfferController.delete')
+    Route.post('/marketoffers/show',       'MarketOfferController.show')
+    Route.post('/marketoffers/show/all',   'MarketOfferController.showAllIPs')
+
 }).middleware(['auth'])
 
 // ROTAS QUE NÃO NECESSITAM DE AUTENTICAÇÃO
