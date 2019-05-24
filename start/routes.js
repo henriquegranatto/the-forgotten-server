@@ -65,6 +65,13 @@ Route.group(() => {
     Route.post('/serverconfig/show',       'ServerConfigController.show')
     Route.post('/serverconfig/show/all',   'ServerConfigController.showAllIPs')
 
+    // ROTAS PARA TOWNS
+    Route.post('/town/create',     'TownController.create')
+    Route.post('/town/edit',       'TownController.edit')
+    Route.post('/town/delete',     'TownController.delete')
+    Route.post('/town/show',       'TownController.show')
+    Route.post('/town/show/all',   'TownController.showAllIPs')
+
 }).middleware(['auth'])
 
 // ROTAS QUE NÃO NECESSITAM DE AUTENTICAÇÃO
