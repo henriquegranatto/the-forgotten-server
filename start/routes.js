@@ -58,6 +58,13 @@ Route.group(() => {
     Route.post('/marketoffers/show',       'MarketOfferController.show')
     Route.post('/marketoffers/show/all',   'MarketOfferController.showAllIPs')
 
+    // ROTAS PARA SERVER CONFIG
+    Route.post('/serverconfig/create',     'ServerConfigController.create')
+    Route.post('/serverconfig/edit',       'ServerConfigController.edit')
+    Route.post('/serverconfig/delete',     'ServerConfigController.delete')
+    Route.post('/serverconfig/show',       'ServerConfigController.show')
+    Route.post('/serverconfig/show/all',   'ServerConfigController.showAllIPs')
+
 }).middleware(['auth'])
 
 // ROTAS QUE NÃO NECESSITAM DE AUTENTICAÇÃO
