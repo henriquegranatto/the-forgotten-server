@@ -79,6 +79,13 @@ Route.group(() => {
     Route.post('/account/ban/show',       'AccountBanController.show')
     Route.post('/account/ban/show/all',   'AccountBanController.showAllIPs')
 
+    // ROTAS PARA ACCOUNT BAN HISTORY
+    Route.post('/account/ban/history/create',     'AccountBanHistoryController.create')
+    Route.post('/account/ban/history/edit',       'AccountBanHistoryController.edit')
+    Route.post('/account/ban/history/delete',     'AccountBanHistoryController.delete')
+    Route.post('/account/ban/history/show',       'AccountBanHistoryController.show')
+    Route.post('/account/ban/history/show/all',   'AccountBanHistoryController.showAllIPs')
+
 }).middleware(['auth'])
 
 // ROTAS QUE NÃO NECESSITAM DE AUTENTICAÇÃO
