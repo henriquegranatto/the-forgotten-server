@@ -86,6 +86,13 @@ Route.group(() => {
     Route.post('/account/ban/history/show',       'AccountBanHistoryController.show')
     Route.post('/account/ban/history/show/all',   'AccountBanHistoryController.showAllIPs')
 
+    // ROTAS PARA ACCOUNT VIPLIST
+    Route.post('/account/viplist/create',     'AccountVipListController.create')
+    Route.post('/account/viplist/edit',       'AccountVipListController.edit')
+    Route.post('/account/viplist/delete',     'AccountVipListController.delete')
+    Route.post('/account/viplist/show',       'AccountVipListController.show')
+    Route.post('/account/viplist/show/all',   'AccountVipListController.showAllIPs')
+
 }).middleware(['auth'])
 
 // ROTAS QUE NÃO NECESSITAM DE AUTENTICAÇÃO
