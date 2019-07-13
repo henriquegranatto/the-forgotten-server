@@ -100,6 +100,13 @@ Route.group(() => {
     Route.post('/guildwar/kill/show',       'GuildWarKillController.show')
     Route.post('/guildwar/kill/show/all',   'GuildWarKillController.showAllIPs')
 
+    // ROTAS PARA GUILD INVITES
+    Route.post('/guildinvites/create',     'GuildInviteController.create')
+    Route.post('/guildinvites/edit',       'GuildInviteController.edit')
+    Route.post('/guildinvites/delete',     'GuildInviteController.delete')
+    Route.post('/guildinvites/show',       'GuildInviteController.show')
+    Route.post('/guildinvites/show/all',   'GuildInviteController.showAllGuildInvites')
+
 }).middleware(['auth'])
 
 // ROTAS QUE NÃO NECESSITAM DE AUTENTICAÇÃO
