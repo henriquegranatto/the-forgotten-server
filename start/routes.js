@@ -93,6 +93,13 @@ Route.group(() => {
     Route.post('/account/viplist/show',       'AccountVipListController.show')
     Route.post('/account/viplist/show/all',   'AccountVipListController.showAllIPs')
 
+    // ROTAS PARA GUILDWAR KILL
+    Route.post('/guildwar/kill/create',     'GuildWarKillController.create')
+    Route.post('/guildwar/kill/edit',       'GuildWarKillController.edit')
+    Route.post('/guildwar/kill/delete',     'GuildWarKillController.delete')
+    Route.post('/guildwar/kill/show',       'GuildWarKillController.show')
+    Route.post('/guildwar/kill/show/all',   'GuildWarKillController.showAllIPs')
+
 }).middleware(['auth'])
 
 // ROTAS QUE NÃO NECESSITAM DE AUTENTICAÇÃO
