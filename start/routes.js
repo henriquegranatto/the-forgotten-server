@@ -107,6 +107,13 @@ Route.group(() => {
     Route.post('/guildinvites/show',       'GuildInviteController.show')
     Route.post('/guildinvites/show/all',   'GuildInviteController.showAllGuildInvites')
 
+    // ROTAS PARA GUILD MEMBERSHIP
+    Route.post('/guildmembership/create',     'GuildMembershipController.create')
+    Route.post('/guildmembership/edit',       'GuildMembershipController.edit')
+    Route.post('/guildmembership/delete',     'GuildMembershipController.delete')
+    Route.post('/guildmembership/show',       'GuildMembershipController.show')
+    Route.post('/guildmembership/show/all',   'GuildMembershipController.showAllIPs')
+
 }).middleware(['auth'])
 
 // ROTAS QUE NÃO NECESSITAM DE AUTENTICAÇÃO
