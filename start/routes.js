@@ -120,6 +120,12 @@ Route.group(() => {
     Route.post('/guildrank/show',       'GuildRankController.show')
     Route.post('/guildrank/show/all',   'GuildRankController.showAllIPs')
 
+    // ROTAS PARA GUILD WAR
+    Route.post('/guildwar/create',     'GuildWarController.create')
+    Route.post('/guildwar/delete',     'GuildWarController.delete')
+    Route.post('/guildwar/show',       'GuildWarController.show')
+    Route.post('/guildwar/show/all',   'GuildWarController.showAllIPs')
+
 }).middleware(['auth'])
 
 // ROTAS QUE NÃO NECESSITAM DE AUTENTICAÇÃO
