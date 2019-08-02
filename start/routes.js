@@ -133,6 +133,13 @@ Route.group(() => {
     Route.post('/playerdeaths/show',      'PlayerDeathController.show')
     Route.post('/playerdeaths/show/all',  'PlayerDeathController.showAllPlayers')
 
+    // ROTAS PARA PLAYER DEPOT ITEMS
+    Route.post('/playerdepotitems/create',    'PlayerDepotItemController.create')
+    Route.post('/playerdepotitems/edit',      'PlayerDepotItemController.edit')
+    Route.post('/playerdepotitems/delete',    'PlayerDepotItemController.delete')
+    Route.post('/playerdepotitems/show',      'PlayerDepotItemController.show')
+    Route.post('/playerdepotitems/show/all',  'PlayerDepotItemController.showAllPlayers')
+
 }).middleware(['auth'])
 
 // ROTAS QUE NÃO NECESSITAM DE AUTENTICAÇÃO
