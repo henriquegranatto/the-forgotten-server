@@ -126,6 +126,13 @@ Route.group(() => {
     Route.post('/guildwar/show',       'GuildWarController.show')
     Route.post('/guildwar/show/all',   'GuildWarController.showAllIPs')
 
+    // ROTAS PARA PLAYER
+    Route.post('/playerdeaths/create',    'PlayerDeathController.create')
+    Route.post('/playerdeaths/edit',      'PlayerDeathController.edit')
+    Route.post('/playerdeaths/delete',    'PlayerDeathController.delete')
+    Route.post('/playerdeaths/show',      'PlayerDeathController.show')
+    Route.post('/playerdeaths/show/all',  'PlayerDeathController.showAllPlayers')
+
 }).middleware(['auth'])
 
 // ROTAS QUE NÃO NECESSITAM DE AUTENTICAÇÃO
