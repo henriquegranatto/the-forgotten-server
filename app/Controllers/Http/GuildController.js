@@ -30,6 +30,8 @@ class GuildController
 
             const guild = await Database.table('guilds').where('id', data.id).update(data)
 
+            if(guild == 0) throw {status: 400, message: "Guilda não foi encontrada com os dados informados"}
+
             response.send({status: 200, messagem: "Dados alterados com sucesso!"})
         }
         catch(e)
@@ -44,9 +46,9 @@ class GuildController
     {
         try
         {
-            const data = request.only(['id'])
+            const where = request.only(['id'])
 
-            const guild = await Database.table('guilds').where('id', data.id).delete()
+            const guild = await Database.table('guilds').where(where).delete()
 
             if(guild == 0) throw {status: 400, message: "Guilda não foi encontrada com os dados informados"}
             
@@ -65,8 +67,8 @@ class GuildController
         try
         {
             const data = request.only(['id', 'name'])
-            const filter = (data.id) ? {id: data.id} : {name: data.name}
-            const guild = await Database.select('*').from('guilds').where(filter)
+            const where = (data.id) ? {id: data.id} : {name: data.name}
+            const guild = await Database.select('*').from('guilds').where(where)
             response.send({status: 200, messagem: "Pesquisa realizada. Dados encontrados:", data: guild})
         }
         catch(e)
@@ -77,18 +79,18 @@ class GuildController
         }
     }
 
-    async showAllGuilds ({ request, response }) 
+    async showAll ({ request, response }) 
     {
         try
         {
-            const data = request.only(['ownerid'])
-            const guild = await Database.select('*').from('guilds').where("ownerid", data.ownerid)
+            const where = request.only(['ownerid'])
+            const guild = await Database.select('*').from('guilds').where(where)
             response.send({status: 200, messagem: "Pesquisa realizada. Dados encontrados:", data: guild})
         }
         catch(e)
         {
             // RETORNA ALGUM POSSÍVEL ERRO
-            const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "GuildController.show", message: e.message}}
+            const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "GuildController.showAll", message: e.message}}
             response.send(error)
         }
     }
