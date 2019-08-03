@@ -153,6 +153,12 @@ Route.group(() => {
     Route.post('/playeritems/show',      'PlayerItemsConstrollerController.show')
     Route.post('/playeritems/show/all',  'PlayerItemsConstrollerController.showAllPlayers')
 
+    // ROTAS PARA PLAYER NAMELOCK
+    Route.post('/playernamelock/create',    'PlayerNameLockController.create')
+    Route.post('/playernamelock/delete',    'PlayerNameLockController.delete')
+    Route.post('/playernamelock/show',      'PlayerNameLockController.show')
+    Route.post('/playernamelock/show/all',  'PlayerNameLockController.showAllPlayers')
+
 }).middleware(['auth'])
 
 // ROTAS QUE NÃO NECESSITAM DE AUTENTICAÇÃO
