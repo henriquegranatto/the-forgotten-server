@@ -147,6 +147,12 @@ Route.group(() => {
     Route.post('/playerinboxitems/show',      'PlayerInboxItemController.show')
     Route.post('/playerinboxitems/show/all',  'PlayerInboxItemController.showAllPlayers')
 
+    // ROTAS PARA PLAYER ITEMS
+    Route.post('/playeritems/create',    'PlayerItemsConstrollerController.create')
+    Route.post('/playeritems/delete',    'PlayerItemsConstrollerController.delete')
+    Route.post('/playeritems/show',      'PlayerItemsConstrollerController.show')
+    Route.post('/playeritems/show/all',  'PlayerItemsConstrollerController.showAllPlayers')
+
 }).middleware(['auth'])
 
 // ROTAS QUE NÃO NECESSITAM DE AUTENTICAÇÃO
