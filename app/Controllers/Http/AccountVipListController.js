@@ -10,7 +10,7 @@ class AccountVipListController
         {
             const data = request.except(['publicCode', 'token'])
 
-            const town = await Database.table('account_viplist').insert(data)
+            const account_viplist = await Database.table('account_viplist').insert(data)
 
             response.send({status: 200, messagem: "Vip adicionado com sucesso!"})
         }
@@ -26,10 +26,12 @@ class AccountVipListController
     {
         try
         {
-            const account_id = request.only(['account_id'])
+            const where = request.only(['account_id'])
             const data = request.except(['publicCode', 'token', 'account_id'])
 
-            const town = await Database.table('account_viplist').where('account_id', account_id).update(data)
+            const account_viplist = await Database.table('account_viplist').where(where).update(data)
+
+            if(account_viplist == 0) throw {status: 200, messagem: "Conta não foi encontrada com os dados informados"}
 
             response.send({status: 200, messagem: "Dados alterados com sucesso!"})
         }
@@ -45,10 +47,10 @@ class AccountVipListController
     {
         try
         {
-            const account_id = request.only(['account_id'])
-            const town = await Database.table('account_viplist').where('account_id', account_id).delete()
+            const where = request.only(['account_id'])
+            const account_viplist = await Database.table('account_viplist').where(where).delete()
 
-            if(town == 0) throw {status: 400, message: "Vip não foi encontrada com os dados informados"}
+            if(account_viplist == 0) throw {status: 400, message: "Vip não foi encontrada com os dados informados"}
             
             response.send({status: 200, messagem: "Vip deletado com sucesso"})
         }
@@ -65,8 +67,8 @@ class AccountVipListController
         try
         {
             const where = request.only(['account_id', 'player_id'])
-            const town = await Database.select('*').from('account_viplist').where(where)
-            response.send({status: 200, messagem: "Pesquisa realizada. Dados encontrados:", data: town})
+            const account_viplist = await Database.select('*').from('account_viplist').where(where)
+            response.send({status: 200, messagem: "Pesquisa realizada. Dados encontrados:", data: account_viplist})
         }
         catch(e)
         {
@@ -76,18 +78,18 @@ class AccountVipListController
         }
     }
 
-    async showAllIPs ({ request, response }) 
+    async showAll ({ request, response }) 
     {
         try
         {
-            const data = request.except(['publicCode', 'token', 'account_id', 'player_id'])
-            const town = await Database.select('*').from('account_viplist').where(data)
-            response.send({status: 200, messagem: "Pesquisa realizada. Dados encontrados:", data: town})
+            const where = request.except(['publicCode', 'token', 'account_id', 'player_id'])
+            const account_viplist = await Database.select('*').from('account_viplist').where(where)
+            response.send({status: 200, messagem: "Pesquisa realizada. Dados encontrados:", data: account_viplist})
         }
         catch(e)
         {
             // RETORNA ALGUM POSSÍVEL ERRO
-            const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "AccountVipListController.showAllIPs", message: e.message}}
+            const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "AccountVipListController.showAll", message: e.message}}
             response.send(error)
         }
     }
