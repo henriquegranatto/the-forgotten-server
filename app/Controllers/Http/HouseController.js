@@ -65,8 +65,8 @@ class HouseController
         try
         {
             const data = request.only(['id', 'name'])
-            const filter = (data.id) ? {id: data.id} : {name: data.name}
-            const house = await Database.select('*').from('houses').where(filter)
+            const where = (data.id) ? {id: data.id} : {name: data.name}
+            const house = await Database.select('*').from('houses').where(where)
             response.send({status: 200, messagem: "Pesquisa realizada. Dados encontrados:", data: house})
         }
         catch(e)
@@ -77,18 +77,18 @@ class HouseController
         }
     }
 
-    async showAllHouses ({ request, response }) 
+    async showAll ({ request, response }) 
     {
         try
         {
-            const data = request.only(['owner'])
-            const house = await Database.select('*').from('houses').where("owner", data.owner)
+            const where = request.only(['owner'])
+            const house = await Database.select('*').from('houses').where(where)
             response.send({status: 200, messagem: "Pesquisa realizada. Dados encontrados:", data: house})
         }
         catch(e)
         {
             // RETORNA ALGUM POSSÍVEL ERRO
-            const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "HouseController.show", message: e.message}}
+            const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "HouseController.showAll", message: e.message}}
             response.send(error)
         }
     }
