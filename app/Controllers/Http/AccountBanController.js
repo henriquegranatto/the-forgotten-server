@@ -88,7 +88,7 @@ class AccountBanController
         catch(e)
         {
             // RETORNA ALGUM POSSÍVEL ERRO
-            const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "AccountBanController.showAllIPs", message: e.message}}
+            const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "AccountBanController.showAll", message: e.message}}
             response.send(error)
         }
     }
