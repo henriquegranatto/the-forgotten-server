@@ -45,25 +45,25 @@ Route.group(() => {
     Route.post('/house/show/all',   'HouseController.showAllHouses')
 
     // ROTAS PARA MARKET HISTORY
-    Route.post('/markethistory/create',     'MarketHistoryController.create')
-    Route.post('/markethistory/edit',       'MarketHistoryController.edit')
-    Route.post('/markethistory/delete',     'MarketHistoryController.delete')
-    Route.post('/markethistory/show',       'MarketHistoryController.show')
-    Route.post('/markethistory/show/all',   'MarketHistoryController.showAllIPs')
+    Route.post('/market/history/create',     'MarketHistoryController.create')
+    Route.post('/market/history/edit',       'MarketHistoryController.edit')
+    Route.post('/market/history/delete',     'MarketHistoryController.delete')
+    Route.post('/market/history/show',       'MarketHistoryController.show')
+    Route.post('/market/history/show/all',   'MarketHistoryController.showAllIPs')
 
     // ROTAS PARA MARKET OFFERS
-    Route.post('/marketoffers/create',     'MarketOfferController.create')
-    Route.post('/marketoffers/edit',       'MarketOfferController.edit')
-    Route.post('/marketoffers/delete',     'MarketOfferController.delete')
-    Route.post('/marketoffers/show',       'MarketOfferController.show')
-    Route.post('/marketoffers/show/all',   'MarketOfferController.showAllIPs')
+    Route.post('/market/offers/create',     'MarketOfferController.create')
+    Route.post('/market/offers/edit',       'MarketOfferController.edit')
+    Route.post('/market/offers/delete',     'MarketOfferController.delete')
+    Route.post('/market/offers/show',       'MarketOfferController.show')
+    Route.post('/market/offers/show/all',   'MarketOfferController.showAllIPs')
 
     // ROTAS PARA SERVER CONFIG
-    Route.post('/serverconfig/create',     'ServerConfigController.create')
-    Route.post('/serverconfig/edit',       'ServerConfigController.edit')
-    Route.post('/serverconfig/delete',     'ServerConfigController.delete')
-    Route.post('/serverconfig/show',       'ServerConfigController.show')
-    Route.post('/serverconfig/show/all',   'ServerConfigController.showAllIPs')
+    Route.post('/server/config/create',     'ServerConfigController.create')
+    Route.post('/server/config/edit',       'ServerConfigController.edit')
+    Route.post('/server/config/delete',     'ServerConfigController.delete')
+    Route.post('/server/config/show',       'ServerConfigController.show')
+    Route.post('/server/config/show/all',   'ServerConfigController.showAllIPs')
 
     // ROTAS PARA TOWNS
     Route.post('/town/create',     'TownController.create')
@@ -94,70 +94,70 @@ Route.group(() => {
     Route.post('/account/viplist/show/all',   'AccountVipListController.showAllIPs')
 
     // ROTAS PARA GUILDWAR KILL
-    Route.post('/guildwar/kill/create',     'GuildWarKillController.create')
-    Route.post('/guildwar/kill/edit',       'GuildWarKillController.edit')
-    Route.post('/guildwar/kill/delete',     'GuildWarKillController.delete')
-    Route.post('/guildwar/kill/show',       'GuildWarKillController.show')
-    Route.post('/guildwar/kill/show/all',   'GuildWarKillController.showAllIPs')
+    Route.post('/guild/war/kill/create',     'GuildWarKillController.create')
+    Route.post('/guild/war/kill/edit',       'GuildWarKillController.edit')
+    Route.post('/guild/war/kill/delete',     'GuildWarKillController.delete')
+    Route.post('/guild/war/kill/show',       'GuildWarKillController.show')
+    Route.post('/guild/war/kill/show/all',   'GuildWarKillController.showAllIPs')
 
     // ROTAS PARA GUILD INVITES
-    Route.post('/guildinvites/create',     'GuildInviteController.create')
-    Route.post('/guildinvites/edit',       'GuildInviteController.edit')
-    Route.post('/guildinvites/delete',     'GuildInviteController.delete')
-    Route.post('/guildinvites/show',       'GuildInviteController.show')
-    Route.post('/guildinvites/show/all',   'GuildInviteController.showAllGuildInvites')
+    Route.post('/guild/invites/create',     'GuildInviteController.create')
+    Route.post('/guild/invites/edit',       'GuildInviteController.edit')
+    Route.post('/guild/invites/delete',     'GuildInviteController.delete')
+    Route.post('/guild/invites/show',       'GuildInviteController.show')
+    Route.post('/guild/invites/show/all',   'GuildInviteController.showAllGuildInvites')
 
     // ROTAS PARA GUILD MEMBERSHIP
-    Route.post('/guildmembership/create',     'GuildMembershipController.create')
-    Route.post('/guildmembership/edit',       'GuildMembershipController.edit')
-    Route.post('/guildmembership/delete',     'GuildMembershipController.delete')
-    Route.post('/guildmembership/show',       'GuildMembershipController.show')
-    Route.post('/guildmembership/show/all',   'GuildMembershipController.showAllIPs')
+    Route.post('/guild/membership/create',     'GuildMembershipController.create')
+    Route.post('/guild/membership/edit',       'GuildMembershipController.edit')
+    Route.post('/guild/membership/delete',     'GuildMembershipController.delete')
+    Route.post('/guild/membership/show',       'GuildMembershipController.show')
+    Route.post('/guild/membership/show/all',   'GuildMembershipController.showAllIPs')
 
     // ROTAS PARA GUILD RANK
-    Route.post('/guildrank/create',     'GuildRankController.create')
-    Route.post('/guildrank/delete',     'GuildRankController.delete')
-    Route.post('/guildrank/show',       'GuildRankController.show')
-    Route.post('/guildrank/show/all',   'GuildRankController.showAllIPs')
+    Route.post('/guild/rank/create',     'GuildRankController.create')
+    Route.post('/guild/rank/delete',     'GuildRankController.delete')
+    Route.post('/guild/rank/show',       'GuildRankController.show')
+    Route.post('/guild/rank/show/all',   'GuildRankController.showAllIPs')
 
     // ROTAS PARA GUILD WAR
-    Route.post('/guildwar/create',     'GuildWarController.create')
-    Route.post('/guildwar/delete',     'GuildWarController.delete')
-    Route.post('/guildwar/show',       'GuildWarController.show')
-    Route.post('/guildwar/show/all',   'GuildWarController.showAllIPs')
+    Route.post('/guild/war/create',     'GuildWarController.create')
+    Route.post('/guild/war/delete',     'GuildWarController.delete')
+    Route.post('/guild/war/show',       'GuildWarController.show')
+    Route.post('/guild/war/show/all',   'GuildWarController.showAllIPs')
 
     // ROTAS PARA PLAYER
-    Route.post('/playerdeaths/create',    'PlayerDeathController.create')
-    Route.post('/playerdeaths/edit',      'PlayerDeathController.edit')
-    Route.post('/playerdeaths/delete',    'PlayerDeathController.delete')
-    Route.post('/playerdeaths/show',      'PlayerDeathController.show')
-    Route.post('/playerdeaths/show/all',  'PlayerDeathController.showAllPlayers')
+    Route.post('/player/deaths/create',    'PlayerDeathController.create')
+    Route.post('/player/deaths/edit',      'PlayerDeathController.edit')
+    Route.post('/player/deaths/delete',    'PlayerDeathController.delete')
+    Route.post('/player/deaths/show',      'PlayerDeathController.show')
+    Route.post('/player/deaths/show/all',  'PlayerDeathController.showAllPlayers')
 
     // ROTAS PARA PLAYER DEPOT ITEMS
-    Route.post('/playerdepotitems/create',    'PlayerDepotItemController.create')
-    Route.post('/playerdepotitems/edit',      'PlayerDepotItemController.edit')
-    Route.post('/playerdepotitems/delete',    'PlayerDepotItemController.delete')
-    Route.post('/playerdepotitems/show',      'PlayerDepotItemController.show')
-    Route.post('/playerdepotitems/show/all',  'PlayerDepotItemController.showAllPlayers')
+    Route.post('/player/depotitems/create',    'PlayerDepotItemController.create')
+    Route.post('/player/depotitems/edit',      'PlayerDepotItemController.edit')
+    Route.post('/player/depotitems/delete',    'PlayerDepotItemController.delete')
+    Route.post('/player/depotitems/show',      'PlayerDepotItemController.show')
+    Route.post('/player/depotitems/show/all',  'PlayerDepotItemController.showAllPlayers')
 
     // ROTAS PARA PLAYER INBOX ITEMS
-    Route.post('/playerinboxitems/create',    'PlayerInboxItemController.create')
-    Route.post('/playerinboxitems/edit',      'PlayerInboxItemController.edit')
-    Route.post('/playerinboxitems/delete',    'PlayerInboxItemController.delete')
-    Route.post('/playerinboxitems/show',      'PlayerInboxItemController.show')
-    Route.post('/playerinboxitems/show/all',  'PlayerInboxItemController.showAllPlayers')
+    Route.post('/player/inboxitems/create',    'PlayerInboxItemController.create')
+    Route.post('/player/inboxitems/edit',      'PlayerInboxItemController.edit')
+    Route.post('/player/inboxitems/delete',    'PlayerInboxItemController.delete')
+    Route.post('/player/inboxitems/show',      'PlayerInboxItemController.show')
+    Route.post('/player/inboxitems/show/all',  'PlayerInboxItemController.showAllPlayers')
 
     // ROTAS PARA PLAYER ITEMS
-    Route.post('/playeritems/create',    'PlayerItemsConstrollerController.create')
-    Route.post('/playeritems/delete',    'PlayerItemsConstrollerController.delete')
-    Route.post('/playeritems/show',      'PlayerItemsConstrollerController.show')
-    Route.post('/playeritems/show/all',  'PlayerItemsConstrollerController.showAllPlayers')
+    Route.post('/player/items/create',    'PlayerItemsConstrollerController.create')
+    Route.post('/player/items/delete',    'PlayerItemsConstrollerController.delete')
+    Route.post('/player/items/show',      'PlayerItemsConstrollerController.show')
+    Route.post('/player/items/show/all',  'PlayerItemsConstrollerController.showAllPlayers')
 
     // ROTAS PARA PLAYER NAMELOCK
-    Route.post('/playernamelock/create',    'PlayerNameLockController.create')
-    Route.post('/playernamelock/delete',    'PlayerNameLockController.delete')
-    Route.post('/playernamelock/show',      'PlayerNameLockController.show')
-    Route.post('/playernamelock/show/all',  'PlayerNameLockController.showAllPlayers')
+    Route.post('/player/namelock/create',    'PlayerNameLockController.create')
+    Route.post('/player/namelock/delete',    'PlayerNameLockController.delete')
+    Route.post('/player/namelock/show',      'PlayerNameLockController.show')
+    Route.post('/player/namelock/show/all',  'PlayerNameLockController.showAllPlayers')
 
 }).middleware(['auth'])
 
