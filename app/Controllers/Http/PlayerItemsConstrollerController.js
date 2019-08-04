@@ -30,7 +30,7 @@ class PlayerItemsConstrollerController
 
             const player_items = await Database.table('player_items').where(where).delete()
 
-            if(player_items == 0) throw {status: 400, message: "Player inbox item não foi encontrado com os dados informados"}
+            if(player_items == 0) throw {status: 400, message: "Player item não foi encontrado com os dados informados"}
             
             response.send({status: 200, messagem: "Player item deletado com sucesso"})
         }
@@ -69,7 +69,7 @@ class PlayerItemsConstrollerController
         catch(e)
         {
             // RETORNA ALGUM POSSÍVEL ERRO
-            const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "PlayerItemsConstrollerController.show", message: e.message}}
+            const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "PlayerItemsConstrollerController.showAll", message: e.message}}
             response.send(error)
         }
     }

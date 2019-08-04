@@ -57,7 +57,7 @@ class GuildWarController
         }
     }
 
-    async showAllIPs ({ request, response }) 
+    async showAll ({ request, response }) 
     {
         try
         {
@@ -68,7 +68,7 @@ class GuildWarController
         catch(e)
         {
             // RETORNA ALGUM POSSÍVEL ERRO
-            const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "GuildWarController.showAllIPs", message: e.message}}
+            const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "GuildWarController.showAll", message: e.message}}
             response.send(error)
         }
     }

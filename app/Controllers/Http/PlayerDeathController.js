@@ -49,7 +49,7 @@ class PlayerDeathController
 
             const player_deaths = await Database.table('player_deaths').where(where).delete()
 
-            if(player_deaths == 0) throw {status: 400, message: "Player não foi encontrado com os dados informados"}
+            if(player_deaths == 0) throw {status: 400, message: "Player death não foi encontrada com os dados informados"}
             
             response.send({status: 200, messagem: "Player death deletada com sucesso"})
         }
@@ -77,7 +77,7 @@ class PlayerDeathController
         }
     }
 
-    async showAllPlayers ({ request, response }) 
+    async showAll ({ request, response }) 
     {
         try
         {
@@ -88,7 +88,7 @@ class PlayerDeathController
         catch(e)
         {
             // RETORNA ALGUM POSSÍVEL ERRO
-            const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "PlayerDeathController.show", message: e.message}}
+            const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "PlayerDeathController.showAll", message: e.message}}
             response.send(error)
         }
     }

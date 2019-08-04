@@ -44,9 +44,9 @@ class ServerConfigController
     {
         try
         {
-            const data = request.only(['config'])
+            const where = request.only(['config'])
 
-            const server_config = await Database.table('server_config').where('config', data.config).delete()
+            const server_config = await Database.table('server_config').where(where).delete()
 
             if(server_config == 0) throw {status: 400, message: "Registro não foi encontrada com os dados informados"}
             
@@ -64,8 +64,8 @@ class ServerConfigController
     {
         try
         {
-            const data = request.only(['config'])
-            const server_config = await Database.select('*').from('server_config').where(data)
+            const where = request.only(['config'])
+            const server_config = await Database.select('*').from('server_config').where(where)
             response.send({status: 200, messagem: "Pesquisa realizada. Dados encontrados:", data: server_config})
         }
         catch(e)
@@ -76,7 +76,7 @@ class ServerConfigController
         }
     }
 
-    async showAllIPs ({ request, response }) 
+    async showAll ({ request, response }) 
     {
         try
         {
@@ -86,7 +86,7 @@ class ServerConfigController
         catch(e)
         {
             // RETORNA ALGUM POSSÍVEL ERRO
-            const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "ServerConfigController.showAllIPs", message: e.message}}
+            const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "ServerConfigController.showAll", message: e.message}}
             response.send(error)
         }
     }

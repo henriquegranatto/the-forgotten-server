@@ -44,9 +44,9 @@ class IpBanController
     {
         try
         {
-            const data = request.only(['ip'])
+            const where = request.only(['ip'])
 
-            const ipban = await Database.table('ip_bans').where('ip', data.ip).delete()
+            const ipban = await Database.table('ip_bans').where(where).delete()
 
             if(ipban == 0) throw {status: 400, message: "IP banido não foi encontrada com os dados informados"}
             
@@ -64,8 +64,8 @@ class IpBanController
     {
         try
         {
-            const data = request.only(['ip'])
-            const ipban = await Database.select('*').from('ip_bans').where(data)
+            const where = request.only(['ip'])
+            const ipban = await Database.select('*').from('ip_bans').where(where)
             response.send({status: 200, messagem: "Pesquisa realizada. Dados encontrados:", data: ipban})
         }
         catch(e)
@@ -76,18 +76,18 @@ class IpBanController
         }
     }
 
-    async showAllIPs ({ request, response }) 
+    async showAll ({ request, response }) 
     {
         try
         {
-            const data = request.only(['banned_by'])
-            const ipban = await Database.select('*').from('ip_bans').where("banned_by", data.banned_by)
+            const where = request.only(['banned_by'])
+            const ipban = await Database.select('*').from('ip_bans').where(where)
             response.send({status: 200, messagem: "Pesquisa realizada. Dados encontrados:", data: ipban})
         }
         catch(e)
         {
             // RETORNA ALGUM POSSÍVEL ERRO
-            const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "IPBanController.showAllIPs", message: e.message}}
+            const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "IPBanController.showAll", message: e.message}}
             response.send(error)
         }
     }

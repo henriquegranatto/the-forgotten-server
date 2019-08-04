@@ -10,7 +10,7 @@ class AccountBanController
         {
             const data = request.except(['publicCode', 'token'])
 
-            const town = await Database.table('account_bans').insert(data)
+            const account_bans = await Database.table('account_bans').insert(data)
 
             response.send({status: 200, messagem: "Banimento de conta efetuado com sucesso!"})
         }
@@ -27,9 +27,9 @@ class AccountBanController
         try
         {
             const data = request.except(['publicCode', 'token', 'account_id'])
-            const account_id = request.only(['account_id'])
+            const where = request.only(['account_id'])
 
-            const town = await Database.table('account_bans').where('account_id', account_id).update(data)
+            const account_bans = await Database.table('account_bans').where(where).update(data)
 
             response.send({status: 200, messagem: "Dados alterados com sucesso!"})
         }
@@ -45,11 +45,11 @@ class AccountBanController
     {
         try
         {
-            const data = request.only(['account_id'])
+            const where = request.only(['account_id'])
 
-            const town = await Database.table('account_bans').where('account_id', data.account_id).delete()
+            const account_bans = await Database.table('account_bans').where(where).delete()
 
-            if(town == 0) throw {status: 400, message: "Conta banida não foi encontrada com os dados informados"}
+            if(account_bans == 0) throw {status: 400, message: "Conta banida não foi encontrada com os dados informados"}
             
             response.send({status: 200, messagem: "Banimento de conta deletada com sucesso"})
         }
@@ -65,9 +65,9 @@ class AccountBanController
     {
         try
         {
-            const data = request.only(['account_id'])
-            const town = await Database.select('*').from('account_bans').where(data)
-            response.send({status: 200, messagem: "Pesquisa realizada. Dados encontrados:", data: town})
+            const where = request.only(['account_id'])
+            const account_bans = await Database.select('*').from('account_bans').where(where)
+            response.send({status: 200, messagem: "Pesquisa realizada. Dados encontrados:", data: account_bans})
         }
         catch(e)
         {
@@ -77,18 +77,18 @@ class AccountBanController
         }
     }
 
-    async showAllIPs ({ request, response }) 
+    async showAll ({ request, response }) 
     {
         try
         {
-            const data = request.except(['publicCode', 'token', 'account_id'])
-            const town = await Database.select('*').from('account_bans').where(data)
-            response.send({status: 200, messagem: "Pesquisa realizada. Dados encontrados:", data: town})
+            const where = request.except(['publicCode', 'token', 'account_id'])
+            const account_bans = await Database.select('*').from('account_bans').where(where)
+            response.send({status: 200, messagem: "Pesquisa realizada. Dados encontrados:", data: account_bans})
         }
         catch(e)
         {
             // RETORNA ALGUM POSSÍVEL ERRO
-            const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "AccountBanController.showAllIPs", message: e.message}}
+            const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "AccountBanController.showAll", message: e.message}}
             response.send(error)
         }
     }

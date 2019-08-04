@@ -77,7 +77,7 @@ class PlayerDepotItemController
         }
     }
 
-    async showAllPlayers ({ request, response }) 
+    async showAll ({ request, response }) 
     {
         try
         {
@@ -88,7 +88,7 @@ class PlayerDepotItemController
         catch(e)
         {
             // RETORNA ALGUM POSSÍVEL ERRO
-            const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "PlayerDepotItemController.show", message: e.message}}
+            const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "PlayerDepotItemController.showAll", message: e.message}}
             response.send(error)
         }
     }

@@ -58,7 +58,7 @@ class GuildInviteController
         }
     }
 
-    async showAllGuildInvites ({ request, response }) 
+    async showAll ({ request, response }) 
     {
         try
         {
@@ -69,7 +69,7 @@ class GuildInviteController
         catch(e)
         {
             // RETORNA ALGUM POSSÍVEL ERRO
-            const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "GuildInviteController.show", message: e.message}}
+            const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "GuildInviteController.showAll", message: e.message}}
             response.send(error)
         }
     }

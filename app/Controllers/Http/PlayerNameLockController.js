@@ -12,7 +12,7 @@ class PlayerNameLockController
 
             const player_namelocks = await Database.table('player_namelocks').insert(data)
 
-            response.send({status: 200, messagem: "Player item adicionado com sucesso!"})
+            response.send({status: 200, messagem: "Player namelock adicionado com sucesso!"})
         }
         catch(e)
         {
@@ -30,9 +30,9 @@ class PlayerNameLockController
 
             const player_namelocks = await Database.table('player_namelocks').where(where).delete()
 
-            if(player_namelocks == 0) throw {status: 400, message: "Player inbox item não foi encontrado com os dados informados"}
+            if(player_namelocks == 0) throw {status: 400, message: "Player namelock não foi encontrado com os dados informados"}
             
-            response.send({status: 200, messagem: "Player item deletado com sucesso"})
+            response.send({status: 200, messagem: "Player namelock deletado com sucesso"})
         }
         catch(e)
         {
@@ -58,7 +58,7 @@ class PlayerNameLockController
         }
     }
 
-    async showAllPlayers ({ request, response }) 
+    async showAll ({ request, response }) 
     {
         try
         {
@@ -69,7 +69,7 @@ class PlayerNameLockController
         catch(e)
         {
             // RETORNA ALGUM POSSÍVEL ERRO
-            const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "PlayerNameLockController.show", message: e.message}}
+            const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "PlayerNameLockController.showAll", message: e.message}}
             response.send(error)
         }
     }
