@@ -44,9 +44,9 @@ class MarketOfferController
     {
         try
         {
-            const data = request.only(['id'])
+            const where = request.only(['id'])
 
-            const market_offers = await Database.table('market_offers').where('id', data.id).delete()
+            const market_offers = await Database.table('market_offers').where(where).delete()
 
             if(market_offers == 0) throw {status: 400, message: "Registro não foi encontrada com os dados informados"}
             
@@ -64,8 +64,8 @@ class MarketOfferController
     {
         try
         {
-            const data = request.only(['id'])
-            const market_offers = await Database.select('*').from('market_offers').where(data)
+            const where = request.only(['id'])
+            const market_offers = await Database.select('*').from('market_offers').where(where)
             response.send({status: 200, messagem: "Pesquisa realizada. Dados encontrados:", data: market_offers})
         }
         catch(e)
@@ -76,7 +76,7 @@ class MarketOfferController
         }
     }
 
-    async showAllIPs ({ request, response }) 
+    async showAll ({ request, response }) 
     {
         try
         {
@@ -87,7 +87,7 @@ class MarketOfferController
         catch(e)
         {
             // RETORNA ALGUM POSSÍVEL ERRO
-            const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "MarketOfferController.showAllIPs", message: e.message}}
+            const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "MarketOfferController.showAll", message: e.message}}
             response.send(error)
         }
     }
