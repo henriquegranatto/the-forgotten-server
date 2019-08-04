@@ -10,8 +10,6 @@ class GuildMembershipController
         {
             const data = request.except(['publicCode', 'token'])
 
-            console.log(data)
-
             const guild_membership = await Database.table('guild_membership').insert(data)
 
             response.send({status: 200, messagem: "Membro de guilda de dicionado com sucesso!"})
@@ -50,7 +48,7 @@ class GuildMembershipController
             const where = request.only(['player_id', 'guild_id'])
             const guild_membership = await Database.table('guild_membership').where(where).delete()
 
-            if(guild_membership == 0) throw {status: 400, message: "GuildWar kill não foi encontrada com os dados informados"}
+            if(guild_membership == 0) throw {status: 400, message: "Membro da guilda não foi encontrado com os dados informados"}
             
             response.send({status: 200, messagem: "Membro da guilda retirado deletado com sucesso"})
         }
@@ -78,7 +76,7 @@ class GuildMembershipController
         }
     }
 
-    async showAllIPs ({ request, response }) 
+    async showAll ({ request, response }) 
     {
         try
         {
@@ -89,7 +87,7 @@ class GuildMembershipController
         catch(e)
         {
             // RETORNA ALGUM POSSÍVEL ERRO
-            const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "GuildMembershipController.showAllIPs", message: e.message}}
+            const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "GuildMembershipController.showAll", message: e.message}}
             response.send(error)
         }
     }

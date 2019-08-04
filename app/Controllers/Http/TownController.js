@@ -44,9 +44,9 @@ class TownController
     {
         try
         {
-            const data = request.only(['id'])
+            const where = request.only(['id'])
 
-            const town = await Database.table('towns').where('id', data.id).delete()
+            const town = await Database.table('towns').where(where).delete()
 
             if(town == 0) throw {status: 400, message: "Town não foi encontrada com os dados informados"}
             
@@ -64,8 +64,8 @@ class TownController
     {
         try
         {
-            const data = request.only(['id'])
-            const town = await Database.select('*').from('towns').where(data)
+            const where = request.only(['id'])
+            const town = await Database.select('*').from('towns').where(where)
             response.send({status: 200, messagem: "Pesquisa realizada. Dados encontrados:", data: town})
         }
         catch(e)
@@ -76,18 +76,18 @@ class TownController
         }
     }
 
-    async showAllIPs ({ request, response }) 
+    async showAll ({ request, response }) 
     {
         try
         {
-            const data = request.except(['publicCode', 'token', 'id'])
-            const town = await Database.select('*').from('towns').where(data)
+            const where = request.except(['publicCode', 'token', 'id'])
+            const town = await Database.select('*').from('towns').where(where)
             response.send({status: 200, messagem: "Pesquisa realizada. Dados encontrados:", data: town})
         }
         catch(e)
         {
             // RETORNA ALGUM POSSÍVEL ERRO
-            const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "TownController.showAllIPs", message: e.message}}
+            const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "TownController.showAll", message: e.message}}
             response.send(error)
         }
     }

@@ -26,10 +26,10 @@ class GuildWarKillController
     {
         try
         {
-            const id = request.only(['id'])
+            const where = request.only(['id'])
             const data = request.except(['publicCode', 'token'])
 
-            const guildwar_kills = await Database.table('guildwar_kills').where('id', id).update(data)
+            const guildwar_kills = await Database.table('guildwar_kills').where(where).update(data)
 
             response.send({status: 200, messagem: "Dados alterados com sucesso!"})
         }
@@ -45,8 +45,8 @@ class GuildWarKillController
     {
         try
         {
-            const id = request.only(['id'])
-            const guildwar_kills = await Database.table('guildwar_kills').where('id', id).delete()
+            const where = request.only(['id'])
+            const guildwar_kills = await Database.table('guildwar_kills').where(where).delete()
 
             if(guildwar_kills == 0) throw {status: 400, message: "GuildWar kill não foi encontrada com os dados informados"}
             
@@ -64,8 +64,8 @@ class GuildWarKillController
     {
         try
         {
-            const id = request.only(['id'])
-            const guildwar_kills = await Database.select('*').from('guildwar_kills').where(id)
+            const where = request.only(['id'])
+            const guildwar_kills = await Database.select('*').from('guildwar_kills').where(where)
             response.send({status: 200, messagem: "Pesquisa realizada. Dados encontrados:", data: guildwar_kills})
         }
         catch(e)
@@ -76,18 +76,18 @@ class GuildWarKillController
         }
     }
 
-    async showAllIPs ({ request, response }) 
+    async showAll ({ request, response }) 
     {
         try
         {
-            const data = request.except(['publicCode', 'token', 'id'])
-            const guildwar_kills = await Database.select('*').from('guildwar_kills').where(data)
+            const where = request.except(['publicCode', 'token', 'id'])
+            const guildwar_kills = await Database.select('*').from('guildwar_kills').where(where)
             response.send({status: 200, messagem: "Pesquisa realizada. Dados encontrados:", data: guildwar_kills})
         }
         catch(e)
         {
             // RETORNA ALGUM POSSÍVEL ERRO
-            const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "GuildWarKillController.showAllIPs", message: e.message}}
+            const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "GuildWarKillController.showAll", message: e.message}}
             response.send(error)
         }
     }

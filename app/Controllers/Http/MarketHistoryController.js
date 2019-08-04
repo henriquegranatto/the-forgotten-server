@@ -44,9 +44,9 @@ class MarketHistoryController
     {
         try
         {
-            const data = request.only(['id'])
+            const where = request.only(['id'])
 
-            const market_history = await Database.table('market_history').where('id', data.id).delete()
+            const market_history = await Database.table('market_history').where(where).delete()
 
             if(market_history == 0) throw {status: 400, message: "Registro não foi encontrada com os dados informados"}
             
@@ -64,8 +64,8 @@ class MarketHistoryController
     {
         try
         {
-            const data = request.only(['id'])
-            const market_history = await Database.select('*').from('market_history').where(data)
+            const where = request.only(['id'])
+            const market_history = await Database.select('*').from('market_history').where(where)
             response.send({status: 200, messagem: "Pesquisa realizada. Dados encontrados:", data: market_history})
         }
         catch(e)
@@ -76,18 +76,18 @@ class MarketHistoryController
         }
     }
 
-    async showAllIPs ({ request, response }) 
+    async showAll ({ request, response }) 
     {
         try
         {
-            const data = request.except(['publicCode', 'token', 'id'])
-            const market_history = await Database.select('*').from('market_history').where(data)
+            const where = request.except(['publicCode', 'token', 'id'])
+            const market_history = await Database.select('*').from('market_history').where(where)
             response.send({status: 200, messagem: "Pesquisa realizada. Dados encontrados:", data: market_history})
         }
         catch(e)
         {
             // RETORNA ALGUM POSSÍVEL ERRO
-            const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "MarketHistoryController.showAllIPs", message: e.message}}
+            const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "MarketHistoryController.showAll", message: e.message}}
             response.send(error)
         }
     }
