@@ -29,7 +29,7 @@ class ServerLogErrorController
             {
                 date: `${date.toLocaleString()}`,
                 method: `ServerLogErrorController.register`,
-                payload: `${JSON.stringify({ date: '2019-08-09', method: `${method}`, payload: `${payload}`, error: `${error}` })}`,
+                payload: `${JSON.stringify({ date: `${date.toLocaleString()}`, method: `${method}`, payload: `${payload}`, error: `${error}` })}`,
                 error: `${error.toString()}`,
             }
 
