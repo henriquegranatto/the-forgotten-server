@@ -34,6 +34,8 @@ class ServerLogErrorController
             }
 
             const server_error = await Database.table('server_error').insert(data)
+
+            return server_error[0]
         }
     }
 }
