@@ -30,8 +30,10 @@ class QuestController
         }
         catch(e)
         {
-            // RETORNA ALGUM POSSÍVEL ERRO
-            const error = {status: 400, message: "Não foi possível executar o script", error: e}
+            // REGISTRA O ERRO NO BANCO DE DADOS E RETORNA A REQUISIÇÃO
+            const data = request.all()
+            const code = await server_error.register("QuestController.execute", JSON.stringify(data), e.toString())
+            const error = {status: 400, message: "Não foi possível atender à requisição", error: code}
             response.send(error)
         }
     }
@@ -48,9 +50,11 @@ class QuestController
         }
         catch(e)
         {
-            // RETORNA ALGUM POSSÍVEL ERRO
-            const code = (e.code) ? e.code : "QuestController.validate"
-            throw {code: code, messagem: e.message}
+            // REGISTRA O ERRO NO BANCO DE DADOS E RETORNA A REQUISIÇÃO
+            const data = request.all()
+            const code = await server_error.register("QuestController.validate", JSON.stringify(data), e.toString())
+            const error = {status: 400, message: "Não foi possível atender à requisição", error: code}
+            response.send(error)
         }
     }
 
@@ -73,8 +77,11 @@ class QuestController
         }
         catch(e)
         {
-            // RETORNA ALGUM POSSÍVEL ERRO
-            throw {code: "QuestController.findScript", messagem: e.message}
+            // REGISTRA O ERRO NO BANCO DE DADOS E RETORNA A REQUISIÇÃO
+            const data = request.all()
+            const code = await server_error.register("QuestController.findScript", JSON.stringify(data), e.toString())
+            const error = {status: 400, message: "Não foi possível atender à requisição", error: code}
+            response.send(error)
         }
     }
 }

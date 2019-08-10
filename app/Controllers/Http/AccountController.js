@@ -23,8 +23,10 @@ class AccountController
     }
     catch(e)
     {
-      // RETORNA ALGUM POSSÍVEL ERRO
-      const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "AccountController.create", message: e.message}}
+      // REGISTRA O ERRO NO BANCO DE DADOS E RETORNA A REQUISIÇÃO
+      const data = request.all()
+      const code = await server_error.register("AccountController.create", JSON.stringify(data), e.toString())
+      const error = {status: 400, message: "Não foi possível atender à requisição", error: code}
       response.send(error)
     }
   }
@@ -45,8 +47,10 @@ class AccountController
     }
     catch(e)
     {
-      // RETORNA ALGUM POSSÍVEL ERRO
-      const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "AccountController.edit", message: e.message}}
+      // REGISTRA O ERRO NO BANCO DE DADOS E RETORNA A REQUISIÇÃO
+      const data = request.all()
+      const code = await server_error.register("AccountController.edit", JSON.stringify(data), e.toString())
+      const error = {status: 400, message: "Não foi possível atender à requisição", error: code}
       response.send(error)
     }
   }
@@ -66,8 +70,10 @@ class AccountController
     }
     catch(e)
     {
-      // RETORNA ALGUM POSSÍVEL ERRO
-      const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "AccountController.delete", message: e.message}}
+      // REGISTRA O ERRO NO BANCO DE DADOS E RETORNA A REQUISIÇÃO
+      const data = request.all()
+      const code = await server_error.register("AccountController.delete", JSON.stringify(data), e.toString())
+      const error = {status: 400, message: "Não foi possível atender à requisição", error: code}
       response.send(error)
     }
   }
@@ -83,8 +89,10 @@ class AccountController
     }
     catch(e)
     {
-      // RETORNA ALGUM POSSÍVEL ERRO
-      const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "AccountController.show", messagem: e.message}}
+      // REGISTRA O ERRO NO BANCO DE DADOS E RETORNA A REQUISIÇÃO
+      const data = request.all()
+      const code = await server_error.register("AccountController.show", JSON.stringify(data), e.toString())
+      const error = {status: 400, message: "Não foi possível atender à requisição", error: code}
       response.send(error)
     }
   }
@@ -108,9 +116,11 @@ class AccountController
     }
     catch(e)
     {
-      // RETORNA ALGUM POSSÍVEL ERRO
-      const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "AccountController.password", messagem: e.message}}
-      return error
+      // REGISTRA O ERRO NO BANCO DE DADOS E RETORNA A REQUISIÇÃO
+      const data = request.all()
+      const code = await server_error.register("AccountController.password", JSON.stringify(data), e.toString())
+      const error = {status: 400, message: "Não foi possível atender à requisição", error: code}
+      response.send(error)
     }
   }
 
@@ -123,9 +133,11 @@ class AccountController
     }
     catch(e)
     {
-      // RETORNA ALGUM POSSÍVEL ERRO
-      const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "AccountController.get", messagem: e.message}}
-      return error
+      // REGISTRA O ERRO NO BANCO DE DADOS E RETORNA A REQUISIÇÃO
+      const data = request.all()
+      const code = await server_error.register("AccountController.get", JSON.stringify(data), e.toString())
+      const error = {status: 400, message: "Não foi possível atender à requisição", error: code}
+      response.send(error)
     }
   }
 
@@ -144,9 +156,11 @@ class AccountController
     }
     catch(e)
     {
-      // RETORNA ALGUM POSSÍVEL ERRO
-      const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "AccountController.set", message: e.message}}
-      return error
+      // REGISTRA O ERRO NO BANCO DE DADOS E RETORNA A REQUISIÇÃO
+      const data = request.all()
+      const code = await server_error.register("AccountController.set", JSON.stringify(data), e.toString())
+      const error = {status: 400, message: "Não foi possível atender à requisição", error: code}
+      response.send(error)
     }
   }
 }

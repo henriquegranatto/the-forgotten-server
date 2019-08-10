@@ -16,8 +16,10 @@ class GuildWarController
         }
         catch(e)
         {
-            // RETORNA ALGUM POSSÍVEL ERRO
-            const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "GuildWarController.create", messagem: e.message}}
+            // REGISTRA O ERRO NO BANCO DE DADOS E RETORNA A REQUISIÇÃO
+            const data = request.all()
+            const code = await server_error.register("GuildWarController.create", JSON.stringify(data), e.toString())
+            const error = {status: 400, message: "Não foi possível atender à requisição", error: code}
             response.send(error)
         }
     }
@@ -35,8 +37,10 @@ class GuildWarController
         }
         catch(e)
         {
-            // RETORNA ALGUM POSSÍVEL ERRO
-            const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "GuildWarController.delete", message: e.message}}
+            // REGISTRA O ERRO NO BANCO DE DADOS E RETORNA A REQUISIÇÃO
+            const data = request.all()
+            const code = await server_error.register("GuildWarController.delete", JSON.stringify(data), e.toString())
+            const error = {status: 400, message: "Não foi possível atender à requisição", error: code}
             response.send(error)
         }
     }
@@ -51,8 +55,10 @@ class GuildWarController
         }
         catch(e)
         {
-            // RETORNA ALGUM POSSÍVEL ERRO
-            const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "GuildWarController.show", message: e.message}}
+            // REGISTRA O ERRO NO BANCO DE DADOS E RETORNA A REQUISIÇÃO
+            const data = request.all()
+            const code = await server_error.register("GuildWarController.show", JSON.stringify(data), e.toString())
+            const error = {status: 400, message: "Não foi possível atender à requisição", error: code}
             response.send(error)
         }
     }
@@ -67,8 +73,10 @@ class GuildWarController
         }
         catch(e)
         {
-            // RETORNA ALGUM POSSÍVEL ERRO
-            const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "GuildWarController.showAll", message: e.message}}
+            // REGISTRA O ERRO NO BANCO DE DADOS E RETORNA A REQUISIÇÃO
+            const data = request.all()
+            const code = await server_error.register("GuildWarController.showAll", JSON.stringify(data), e.toString())
+            const error = {status: 400, message: "Não foi possível atender à requisição", error: code}
             response.send(error)
         }
     }

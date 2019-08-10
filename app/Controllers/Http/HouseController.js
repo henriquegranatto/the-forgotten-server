@@ -16,8 +16,10 @@ class HouseController
         }
         catch(e)
         {
-            // RETORNA ALGUM POSSÍVEL ERRO
-            const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "HouseController.create", messagem: e.message}}
+            // REGISTRA O ERRO NO BANCO DE DADOS E RETORNA A REQUISIÇÃO
+            const data = request.all()
+            const code = await server_error.register("HouseController.create", JSON.stringify(data), e.toString())
+            const error = {status: 400, message: "Não foi possível atender à requisição", error: code}
             response.send(error)
         }
     }
@@ -34,8 +36,10 @@ class HouseController
         }
         catch(e)
         {
-            // RETORNA ALGUM POSSÍVEL ERRO
-            const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "HouseController.edit", messagem: e.message}}
+            // REGISTRA O ERRO NO BANCO DE DADOS E RETORNA A REQUISIÇÃO
+            const data = request.all()
+            const code = await server_error.register("HouseController.edit", JSON.stringify(data), e.toString())
+            const error = {status: 400, message: "Não foi possível atender à requisição", error: code}
             response.send(error)
         }
     }
@@ -54,8 +58,10 @@ class HouseController
         }
         catch(e)
         {
-            // RETORNA ALGUM POSSÍVEL ERRO
-            const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "HouseController.delete", message: e.message}}
+            // REGISTRA O ERRO NO BANCO DE DADOS E RETORNA A REQUISIÇÃO
+            const data = request.all()
+            const code = await server_error.register("HouseController.delete", JSON.stringify(data), e.toString())
+            const error = {status: 400, message: "Não foi possível atender à requisição", error: code}
             response.send(error)
         }
     }
@@ -71,8 +77,10 @@ class HouseController
         }
         catch(e)
         {
-            // RETORNA ALGUM POSSÍVEL ERRO
-            const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "HouseController.show", message: e.message}}
+            // REGISTRA O ERRO NO BANCO DE DADOS E RETORNA A REQUISIÇÃO
+            const data = request.all()
+            const code = await server_error.register("HouseController.show", JSON.stringify(data), e.toString())
+            const error = {status: 400, message: "Não foi possível atender à requisição", error: code}
             response.send(error)
         }
     }
@@ -87,8 +95,10 @@ class HouseController
         }
         catch(e)
         {
-            // RETORNA ALGUM POSSÍVEL ERRO
-            const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "HouseController.showAll", message: e.message}}
+            // REGISTRA O ERRO NO BANCO DE DADOS E RETORNA A REQUISIÇÃO
+            const data = request.all()
+            const code = await server_error.register("HouseController.showAll", JSON.stringify(data), e.toString())
+            const error = {status: 400, message: "Não foi possível atender à requisição", error: code}
             response.send(error)
         }
     }

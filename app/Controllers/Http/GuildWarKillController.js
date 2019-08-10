@@ -16,8 +16,10 @@ class GuildWarKillController
         }
         catch(e)
         {
-            // RETORNA ALGUM POSSÍVEL ERRO
-            const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "GuildWarKillController.create", messagem: e.message}}
+            // REGISTRA O ERRO NO BANCO DE DADOS E RETORNA A REQUISIÇÃO
+            const data = request.all()
+            const code = await server_error.register("GuildWarKillController.create", JSON.stringify(data), e.toString())
+            const error = {status: 400, message: "Não foi possível atender à requisição", error: code}
             response.send(error)
         }
     }
@@ -35,8 +37,10 @@ class GuildWarKillController
         }
         catch(e)
         {
-            // RETORNA ALGUM POSSÍVEL ERRO
-            const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "GuildWarKillController.edit", messagem: e.message}}
+            // REGISTRA O ERRO NO BANCO DE DADOS E RETORNA A REQUISIÇÃO
+            const data = request.all()
+            const code = await server_error.register("GuildWarKillController.edit", JSON.stringify(data), e.toString())
+            const error = {status: 400, message: "Não foi possível atender à requisição", error: code}
             response.send(error)
         }
     }
@@ -54,8 +58,10 @@ class GuildWarKillController
         }
         catch(e)
         {
-            // RETORNA ALGUM POSSÍVEL ERRO
-            const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "GuildWarKillController.delete", message: e.message}}
+            // REGISTRA O ERRO NO BANCO DE DADOS E RETORNA A REQUISIÇÃO
+            const data = request.all()
+            const code = await server_error.register("GuildWarKillController.delete", JSON.stringify(data), e.toString())
+            const error = {status: 400, message: "Não foi possível atender à requisição", error: code}
             response.send(error)
         }
     }
@@ -70,8 +76,10 @@ class GuildWarKillController
         }
         catch(e)
         {
-            // RETORNA ALGUM POSSÍVEL ERRO
-            const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "GuildWarKillController.show", message: e.message}}
+            // REGISTRA O ERRO NO BANCO DE DADOS E RETORNA A REQUISIÇÃO
+            const data = request.all()
+            const code = await server_error.register("GuildWarKillController.show", JSON.stringify(data), e.toString())
+            const error = {status: 400, message: "Não foi possível atender à requisição", error: code}
             response.send(error)
         }
     }
@@ -86,8 +94,10 @@ class GuildWarKillController
         }
         catch(e)
         {
-            // RETORNA ALGUM POSSÍVEL ERRO
-            const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "GuildWarKillController.showAll", message: e.message}}
+            // REGISTRA O ERRO NO BANCO DE DADOS E RETORNA A REQUISIÇÃO
+            const data = request.all()
+            const code = await server_error.register("GuildWarKillController.showAll", JSON.stringify(data), e.toString())
+            const error = {status: 400, message: "Não foi possível atender à requisição", error: code}
             response.send(error)
         }
     }

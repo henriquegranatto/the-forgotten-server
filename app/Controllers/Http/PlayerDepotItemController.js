@@ -16,8 +16,10 @@ class PlayerDepotItemController
         }
         catch(e)
         {
-            // RETORNA ALGUM POSSÍVEL ERRO
-            const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "PlayerDepotItemController.create", messagem: e.message}}
+            // REGISTRA O ERRO NO BANCO DE DADOS E RETORNA A REQUISIÇÃO
+            const data = request.all(])
+            const code = await server_error.register("PlayerDepotItemController.create", JSON.stringify(data), e.toString())
+            const error = {status: 400, message: "Não foi possível atender à requisição", error: code}
             response.send(error)
         }
     }
@@ -35,8 +37,10 @@ class PlayerDepotItemController
         }
         catch(e)
         {
-            // RETORNA ALGUM POSSÍVEL ERRO
-            const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "PlayerDepotItemController.edit", messagem: e.message}}
+            // REGISTRA O ERRO NO BANCO DE DADOS E RETORNA A REQUISIÇÃO
+            const data = request.all(])
+            const code = await server_error.register("PlayerDepotItemController.edit", JSON.stringify(data), e.toString())
+            const error = {status: 400, message: "Não foi possível atender à requisição", error: code}
             response.send(error)
         }
     }
@@ -55,8 +59,10 @@ class PlayerDepotItemController
         }
         catch(e)
         {
-            // RETORNA ALGUM POSSÍVEL ERRO
-            const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "PlayerDepotItemController.delete", message: e.message}}
+            // REGISTRA O ERRO NO BANCO DE DADOS E RETORNA A REQUISIÇÃO
+            const data = request.all(])
+            const code = await server_error.register("PlayerDepotItemController.delete", JSON.stringify(data), e.toString())
+            const error = {status: 400, message: "Não foi possível atender à requisição", error: code}
             response.send(error)
         }
     }
@@ -71,8 +77,10 @@ class PlayerDepotItemController
         }
         catch(e)
         {
-            // RETORNA ALGUM POSSÍVEL ERRO
-            const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "PlayerDepotItemController.show", message: e.message}}
+            // REGISTRA O ERRO NO BANCO DE DADOS E RETORNA A REQUISIÇÃO
+            const data = request.all(])
+            const code = await server_error.register("PlayerDepotItemController.show", JSON.stringify(data), e.toString())
+            const error = {status: 400, message: "Não foi possível atender à requisição", error: code}
             response.send(error)
         }
     }
@@ -87,8 +95,10 @@ class PlayerDepotItemController
         }
         catch(e)
         {
-            // RETORNA ALGUM POSSÍVEL ERRO
-            const error = {status: 400, message: "Não foi possível atender à requisição", error: {code: "PlayerDepotItemController.showAll", message: e.message}}
+            // REGISTRA O ERRO NO BANCO DE DADOS E RETORNA A REQUISIÇÃO
+            const data = request.all(])
+            const code = await server_error.register("PlayerDepotItemController.showAll", JSON.stringify(data), e.toString())
+            const error = {status: 400, message: "Não foi possível atender à requisição", error: code}
             response.send(error)
         }
     }
