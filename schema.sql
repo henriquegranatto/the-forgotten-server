@@ -283,6 +283,14 @@ CREATE TABLE `server_config` (
   `value` varchar(256) NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+CREATE TABLE `server_error` (
+  `code` int(11) NOT NULL,
+  `date` varchar(100) NOT NULL,
+  `method` text NOT NULL,
+  `payload` longtext NOT NULL,
+  `error` longtext NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
 CREATE TABLE `tile_store` (
   `house_id` int(11) NOT NULL,
   `data` longblob
@@ -403,6 +411,9 @@ ALTER TABLE `player_storage`
 ALTER TABLE `server_config`
   ADD PRIMARY KEY (`config`);
 
+ALTER TABLE `server_error`
+  ADD PRIMARY KEY (`code`);
+
 ALTER TABLE `tile_store`
   ADD KEY `house_id` (`house_id`);
 
@@ -431,6 +442,8 @@ ALTER TABLE `market_offers`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 ALTER TABLE `players`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+ALTER TABLE `server_error`
+  MODIFY `code` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 ALTER TABLE `towns`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
