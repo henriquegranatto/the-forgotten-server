@@ -2,6 +2,7 @@
 
 const Hash = use('Hash')
 const Database = use('Database')
+const server_error = use('App/Controllers/Http/ServerLogErrorController')
 
 class AccountController 
 {  
