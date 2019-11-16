@@ -16,7 +16,7 @@ class PlayerHelper
         {
             // REGISTRA O ERRO NO BANCO DE DADOS E RETORNA A REQUISIÇÃO
             const code = await server_error.register("PlayerHelper.getPlayer", JSON.stringify(data), e.toString(), `${__dirname}/${__filename}`)
-            return code
+            return {status: 400, message: "Não foi possível atender à requisição", error: code}
         }
     }
 
@@ -34,7 +34,7 @@ class PlayerHelper
         {
             // REGISTRA O ERRO NO BANCO DE DADOS E RETORNA A REQUISIÇÃO
             const code = await server_error.register("PlayerHelper.editPlayer", JSON.stringify(request), e.toString(), `${__dirname}/${__filename}`)
-            return code
+            return {status: 400, message: "Não foi possível atender à requisição", error: code}
         }
     }
 }
