@@ -19,7 +19,7 @@ class MarketHistoryController
         {
             // REGISTRA O ERRO NO BANCO DE DADOS E RETORNA A REQUISIÇÃO
             const data = request.all()
-            const code = await server_error.register("MarketHistoryController.create", JSON.stringify(data), e.toString())
+            const code = await server_error.register("MarketHistoryController.create", JSON.stringify(data), e.toString(), `${__dirname}/${__filename}`)
             const error = {status: 400, message: "Não foi possível atender à requisição", error: code}
             response.send(error)
         }
@@ -39,7 +39,7 @@ class MarketHistoryController
         {
             // REGISTRA O ERRO NO BANCO DE DADOS E RETORNA A REQUISIÇÃO
             const data = request.all()
-            const code = await server_error.register("MarketHistoryController.edit", JSON.stringify(data), e.toString())
+            const code = await server_error.register("MarketHistoryController.edit", JSON.stringify(data), e.toString(), `${__dirname}/${__filename}`)
             const error = {status: 400, message: "Não foi possível atender à requisição", error: code}
             response.send(error)
         }
@@ -61,7 +61,7 @@ class MarketHistoryController
         {
             // REGISTRA O ERRO NO BANCO DE DADOS E RETORNA A REQUISIÇÃO
             const data = request.all()
-            const code = await server_error.register("MarketHistoryController.delete", JSON.stringify(data), e.toString())
+            const code = await server_error.register("MarketHistoryController.delete", JSON.stringify(data), e.toString(), `${__dirname}/${__filename}`)
             const error = {status: 400, message: "Não foi possível atender à requisição", error: code}
             response.send(error)
         }
@@ -79,7 +79,7 @@ class MarketHistoryController
         {
             // REGISTRA O ERRO NO BANCO DE DADOS E RETORNA A REQUISIÇÃO
             const data = request.all()
-            const code = await server_error.register("MarketHistoryController.show", JSON.stringify(data), e.toString())
+            const code = await server_error.register("MarketHistoryController.show", JSON.stringify(data), e.toString(), `${__dirname}/${__filename}`)
             const error = {status: 400, message: "Não foi possível atender à requisição", error: code}
             response.send(error)
         }
@@ -97,7 +97,7 @@ class MarketHistoryController
         {
             // REGISTRA O ERRO NO BANCO DE DADOS E RETORNA A REQUISIÇÃO
             const data = request.all()
-            const code = await server_error.register("MarketHistoryController.showAll", JSON.stringify(data), e.toString())
+            const code = await server_error.register("MarketHistoryController.showAll", JSON.stringify(data), e.toString(), `${__dirname}/${__filename}`)
             const error = {status: 400, message: "Não foi possível atender à requisição", error: code}
             response.send(error)
         }
