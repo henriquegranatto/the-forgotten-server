@@ -19,7 +19,7 @@ class PlayerDeathController
         {
             // REGISTRA O ERRO NO BANCO DE DADOS E RETORNA A REQUISIÇÃO
             const data = request.all()
-            const code = await server_error.register("PlayerDeathController.create", JSON.stringify(data), e.toString())
+            const code = await server_error.register("PlayerDeathController.create", JSON.stringify(data), e.toString(), `${__dirname}/${__filename}`)
             const error = {status: 400, message: "Não foi possível atender à requisição", error: code}
             response.send(error)
         }
@@ -40,7 +40,7 @@ class PlayerDeathController
         {
             // REGISTRA O ERRO NO BANCO DE DADOS E RETORNA A REQUISIÇÃO
             const data = request.all()
-            const code = await server_error.register("PlayerDeathController.edit", JSON.stringify(data), e.toString())
+            const code = await server_error.register("PlayerDeathController.edit", JSON.stringify(data), e.toString(), `${__dirname}/${__filename}`)
             const error = {status: 400, message: "Não foi possível atender à requisição", error: code}
             response.send(error)
         }
@@ -62,7 +62,7 @@ class PlayerDeathController
         {
             // REGISTRA O ERRO NO BANCO DE DADOS E RETORNA A REQUISIÇÃO
             const data = request.all()
-            const code = await server_error.register("PlayerDeathController.delete", JSON.stringify(data), e.toString())
+            const code = await server_error.register("PlayerDeathController.delete", JSON.stringify(data), e.toString(), `${__dirname}/${__filename}`)
             const error = {status: 400, message: "Não foi possível atender à requisição", error: code}
             response.send(error)
         }
@@ -80,7 +80,7 @@ class PlayerDeathController
         {
             // REGISTRA O ERRO NO BANCO DE DADOS E RETORNA A REQUISIÇÃO
             const data = request.all()
-            const code = await server_error.register("PlayerDeathController.show", JSON.stringify(data), e.toString())
+            const code = await server_error.register("PlayerDeathController.show", JSON.stringify(data), e.toString(), `${__dirname}/${__filename}`)
             const error = {status: 400, message: "Não foi possível atender à requisição", error: code}
             response.send(error)
         }
@@ -98,7 +98,7 @@ class PlayerDeathController
         {
             // REGISTRA O ERRO NO BANCO DE DADOS E RETORNA A REQUISIÇÃO
             const data = request.all()
-            const code = await server_error.register("PlayerDeathController.showAll", JSON.stringify(data), e.toString())
+            const code = await server_error.register("PlayerDeathController.showAll", JSON.stringify(data), e.toString(), `${__dirname}/${__filename}`)
             const error = {status: 400, message: "Não foi possível atender à requisição", error: code}
             response.send(error)
         }

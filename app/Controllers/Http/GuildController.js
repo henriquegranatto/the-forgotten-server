@@ -19,7 +19,7 @@ class GuildController
         {
             // REGISTRA O ERRO NO BANCO DE DADOS E RETORNA A REQUISIÇÃO
             const data = request.all()
-            const code = await server_error.register("GuildController.create", JSON.stringify(data), e.toString())
+            const code = await server_error.register("GuildController.create", JSON.stringify(data), e.toString(), `${__dirname}/${__filename}`)
             const error = {status: 400, message: "Não foi possível atender à requisição", error: code}
             response.send(error)
         }
@@ -41,7 +41,7 @@ class GuildController
         {
             // REGISTRA O ERRO NO BANCO DE DADOS E RETORNA A REQUISIÇÃO
             const data = request.all()
-            const code = await server_error.register("GuildController.edit", JSON.stringify(data), e.toString())
+            const code = await server_error.register("GuildController.edit", JSON.stringify(data), e.toString(), `${__dirname}/${__filename}`)
             const error = {status: 400, message: "Não foi possível atender à requisição", error: code}
             response.send(error)
         }
@@ -63,7 +63,7 @@ class GuildController
         {
             // REGISTRA O ERRO NO BANCO DE DADOS E RETORNA A REQUISIÇÃO
             const data = request.all()
-            const code = await server_error.register("GuildController.delete", JSON.stringify(data), e.toString())
+            const code = await server_error.register("GuildController.delete", JSON.stringify(data), e.toString(), `${__dirname}/${__filename}`)
             const error = {status: 400, message: "Não foi possível atender à requisição", error: code}
             response.send(error)
         }
@@ -82,7 +82,7 @@ class GuildController
         {
             // REGISTRA O ERRO NO BANCO DE DADOS E RETORNA A REQUISIÇÃO
             const data = request.all()
-            const code = await server_error.register("GuildController.show", JSON.stringify(data), e.toString())
+            const code = await server_error.register("GuildController.show", JSON.stringify(data), e.toString(), `${__dirname}/${__filename}`)
             const error = {status: 400, message: "Não foi possível atender à requisição", error: code}
             response.send(error)
         }
@@ -100,7 +100,7 @@ class GuildController
         {
             // REGISTRA O ERRO NO BANCO DE DADOS E RETORNA A REQUISIÇÃO
             const data = request.all()
-            const code = await server_error.register("GuildController.showAll", JSON.stringify(data), e.toString())
+            const code = await server_error.register("GuildController.showAll", JSON.stringify(data), e.toString(), `${__dirname}/${__filename}`)
             const error = {status: 400, message: "Não foi possível atender à requisição", error: code}
             response.send(error)
         }

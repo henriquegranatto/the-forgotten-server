@@ -26,7 +26,7 @@ class AccountController
     {
       // REGISTRA O ERRO NO BANCO DE DADOS E RETORNA A REQUISIÇÃO
       const data = request.all()
-      const code = await server_error.register("AccountController.create", JSON.stringify(data), e.toString())
+      const code = await server_error.register("AccountController.create", JSON.stringify(data), e.toString(), `${__dirname}/${__filename}`)
       const error = {status: 400, message: "Não foi possível atender à requisição", error: code}
       response.send(error)
     }
@@ -50,7 +50,7 @@ class AccountController
     {
       // REGISTRA O ERRO NO BANCO DE DADOS E RETORNA A REQUISIÇÃO
       const data = request.all()
-      const code = await server_error.register("AccountController.edit", JSON.stringify(data), e.toString())
+      const code = await server_error.register("AccountController.edit", JSON.stringify(data), e.toString(), `${__dirname}/${__filename}`)
       const error = {status: 400, message: "Não foi possível atender à requisição", error: code}
       response.send(error)
     }
@@ -73,7 +73,7 @@ class AccountController
     {
       // REGISTRA O ERRO NO BANCO DE DADOS E RETORNA A REQUISIÇÃO
       const data = request.all()
-      const code = await server_error.register("AccountController.delete", JSON.stringify(data), e.toString())
+      const code = await server_error.register("AccountController.delete", JSON.stringify(data), e.toString(), `${__dirname}/${__filename}`)
       const error = {status: 400, message: "Não foi possível atender à requisição", error: code}
       response.send(error)
     }
@@ -92,7 +92,7 @@ class AccountController
     {
       // REGISTRA O ERRO NO BANCO DE DADOS E RETORNA A REQUISIÇÃO
       const data = request.all()
-      const code = await server_error.register("AccountController.show", JSON.stringify(data), e.toString())
+      const code = await server_error.register("AccountController.show", JSON.stringify(data), e.toString(), `${__dirname}/${__filename}`)
       const error = {status: 400, message: "Não foi possível atender à requisição", error: code}
       response.send(error)
     }
@@ -119,7 +119,7 @@ class AccountController
     {
       // REGISTRA O ERRO NO BANCO DE DADOS E RETORNA A REQUISIÇÃO
       const data = request.all()
-      const code = await server_error.register("AccountController.password", JSON.stringify(data), e.toString())
+      const code = await server_error.register("AccountController.password", JSON.stringify(data), e.toString(), `${__dirname}/${__filename}`)
       const error = {status: 400, message: "Não foi possível atender à requisição", error: code}
       response.send(error)
     }
@@ -136,7 +136,7 @@ class AccountController
     {
       // REGISTRA O ERRO NO BANCO DE DADOS E RETORNA A REQUISIÇÃO
       const data = request.all()
-      const code = await server_error.register("AccountController.get", JSON.stringify(data), e.toString())
+      const code = await server_error.register("AccountController.get", JSON.stringify(data), e.toString(), `${__dirname}/${__filename}`)
       const error = {status: 400, message: "Não foi possível atender à requisição", error: code}
       response.send(error)
     }
@@ -159,7 +159,7 @@ class AccountController
     {
       // REGISTRA O ERRO NO BANCO DE DADOS E RETORNA A REQUISIÇÃO
       const data = request.all()
-      const code = await server_error.register("AccountController.set", JSON.stringify(data), e.toString())
+      const code = await server_error.register("AccountController.set", JSON.stringify(data), e.toString(), `${__dirname}/${__filename}`)
       const error = {status: 400, message: "Não foi possível atender à requisição", error: code}
       response.send(error)
     }

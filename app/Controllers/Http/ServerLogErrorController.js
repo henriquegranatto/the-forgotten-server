@@ -5,7 +5,7 @@ const server_error = use('App/Controllers/Http/ServerLogErrorController')
 
 class ServerLogErrorController 
 {
-    async register (method, payload, error) 
+    async register (method, payload, error, path) 
     {
         try
         {
@@ -17,6 +17,7 @@ class ServerLogErrorController
                 method: `${method}`,
                 payload: `${payload}`,
                 error: `${error}`,
+                path: `${path}`,
             }
 
             const server_error = await Database.table('server_error').insert(data)
@@ -32,6 +33,7 @@ class ServerLogErrorController
                 method: `ServerLogErrorController.register`,
                 payload: `${JSON.stringify({ date: `${date.toLocaleString()}`, method: `${method}`, payload: `${payload}`, error: `${error}` })}`,
                 error: `${error.toString()}`,
+                path: `${__dirname}/${__filename}`
             }
 
             const server_error = await Database.table('server_error').insert(data)

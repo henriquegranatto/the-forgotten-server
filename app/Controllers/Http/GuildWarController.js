@@ -19,7 +19,7 @@ class GuildWarController
         {
             // REGISTRA O ERRO NO BANCO DE DADOS E RETORNA A REQUISIÇÃO
             const data = request.all()
-            const code = await server_error.register("GuildWarController.create", JSON.stringify(data), e.toString())
+            const code = await server_error.register("GuildWarController.create", JSON.stringify(data), e.toString(), `${__dirname}/${__filename}`)
             const error = {status: 400, message: "Não foi possível atender à requisição", error: code}
             response.send(error)
         }
@@ -40,7 +40,7 @@ class GuildWarController
         {
             // REGISTRA O ERRO NO BANCO DE DADOS E RETORNA A REQUISIÇÃO
             const data = request.all()
-            const code = await server_error.register("GuildWarController.delete", JSON.stringify(data), e.toString())
+            const code = await server_error.register("GuildWarController.delete", JSON.stringify(data), e.toString(), `${__dirname}/${__filename}`)
             const error = {status: 400, message: "Não foi possível atender à requisição", error: code}
             response.send(error)
         }
@@ -58,7 +58,7 @@ class GuildWarController
         {
             // REGISTRA O ERRO NO BANCO DE DADOS E RETORNA A REQUISIÇÃO
             const data = request.all()
-            const code = await server_error.register("GuildWarController.show", JSON.stringify(data), e.toString())
+            const code = await server_error.register("GuildWarController.show", JSON.stringify(data), e.toString(), `${__dirname}/${__filename}`)
             const error = {status: 400, message: "Não foi possível atender à requisição", error: code}
             response.send(error)
         }
@@ -76,7 +76,7 @@ class GuildWarController
         {
             // REGISTRA O ERRO NO BANCO DE DADOS E RETORNA A REQUISIÇÃO
             const data = request.all()
-            const code = await server_error.register("GuildWarController.showAll", JSON.stringify(data), e.toString())
+            const code = await server_error.register("GuildWarController.showAll", JSON.stringify(data), e.toString(), `${__dirname}/${__filename}`)
             const error = {status: 400, message: "Não foi possível atender à requisição", error: code}
             response.send(error)
         }
