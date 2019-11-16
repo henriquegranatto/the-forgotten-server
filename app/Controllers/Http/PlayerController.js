@@ -1,6 +1,7 @@
 'use strict'
 
 const Database = use('Database')
+const server_error = use('App/Controllers/Http/ServerLogErrorController')
 
 class PlayerController 
 {
@@ -17,7 +18,7 @@ class PlayerController
         catch(e)
         {
             // REGISTRA O ERRO NO BANCO DE DADOS E RETORNA A REQUISIÇÃO
-            const data = request.all(])
+            const data = request.all()
             const code = await server_error.register("PlayerController.create", JSON.stringify(data), e.toString())
             const error = {status: 400, message: "Não foi possível atender à requisição", error: code}
             response.send(error)
@@ -37,7 +38,7 @@ class PlayerController
         catch(e)
         {
             // REGISTRA O ERRO NO BANCO DE DADOS E RETORNA A REQUISIÇÃO
-            const data = request.all(])
+            const data = request.all()
             const code = await server_error.register("PlayerController.edit", JSON.stringify(data), e.toString())
             const error = {status: 400, message: "Não foi possível atender à requisição", error: code}
             response.send(error)
@@ -59,7 +60,7 @@ class PlayerController
         catch(e)
         {
             // REGISTRA O ERRO NO BANCO DE DADOS E RETORNA A REQUISIÇÃO
-            const data = request.all(])
+            const data = request.all()
             const code = await server_error.register("PlayerController.delete", JSON.stringify(data), e.toString())
             const error = {status: 400, message: "Não foi possível atender à requisição", error: code}
             response.send(error)
@@ -78,7 +79,7 @@ class PlayerController
         catch(e)
         {
             // REGISTRA O ERRO NO BANCO DE DADOS E RETORNA A REQUISIÇÃO
-            const data = request.all(])
+            const data = request.all()
             const code = await server_error.register("PlayerController.show", JSON.stringify(data), e.toString())
             const error = {status: 400, message: "Não foi possível atender à requisição", error: code}
             response.send(error)
@@ -96,7 +97,7 @@ class PlayerController
         catch(e)
         {
             // REGISTRA O ERRO NO BANCO DE DADOS E RETORNA A REQUISIÇÃO
-            const data = request.all(])
+            const data = request.all()
             const code = await server_error.register("PlayerController.showAll", JSON.stringify(data), e.toString())
             const error = {status: 400, message: "Não foi possível atender à requisição", error: code}
             response.send(error)

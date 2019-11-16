@@ -1,6 +1,7 @@
 'use strict'
 
 const Database = use('Database')
+const server_error = use('App/Controllers/Http/ServerLogErrorController')
 
 class MarketOfferController 
 {

@@ -31,7 +31,7 @@ class MovementController
         catch(e)
         {
             // REGISTRA O ERRO NO BANCO DE DADOS E RETORNA A REQUISIÇÃO
-            const data = request.all(])
+            const data = request.all()
             const code = await server_error.register("MovementController.execute", JSON.stringify(data), e.toString())
             const error = {status: 400, message: "Não foi possível atender à requisição", error: code}
             response.send(error)
@@ -51,7 +51,7 @@ class MovementController
         catch(e)
         {
             // REGISTRA O ERRO NO BANCO DE DADOS E RETORNA A REQUISIÇÃO
-            const data = request.all(])
+            const data = request.all()
             const code = await server_error.register("MovementController.validate", JSON.stringify(data), e.toString())
             const error = {status: 400, message: "Não foi possível atender à requisição", error: code}
             response.send(error)
@@ -78,7 +78,7 @@ class MovementController
         catch(e)
         {
             // REGISTRA O ERRO NO BANCO DE DADOS E RETORNA A REQUISIÇÃO
-            const data = request.all(])
+            const data = request.all()
             const code = await server_error.register("MovementController.findScript", JSON.stringify(data), e.toString())
             const error = {status: 400, message: "Não foi possível atender à requisição", error: code}
             response.send(error)

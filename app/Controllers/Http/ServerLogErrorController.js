@@ -1,6 +1,7 @@
 'use strict'
 
 const Database = use('Database')
+const server_error = use('App/Controllers/Http/ServerLogErrorController')
 
 class ServerLogErrorController 
 {
@@ -40,4 +41,4 @@ class ServerLogErrorController
     }
 }
 
-module.exports = ServerLogErrorController
+module.exports = new ServerLogErrorController()
